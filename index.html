@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/7cd7c13538.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="assets/css/style.css">
     <title>Pokemon Matchups</title>
 </head>
@@ -14,8 +15,24 @@
         <img class="logo" src="assets/images/pokeball-logo.jpg" alt="Pokeball logo"> Pokemon Matchups
     </h1>
 
-    <div class="game-area">
+    <p>Welcome to Pokemon Matchups, a game to test your knowledge on what Pokemon types are effective aginst one and
+        other! To start, selct which game you would like to play and your difficulty.</p>
 
+    <div class="game-area">
+        <div class="controls-area">
+            <button class="big attack"><i class="fa-solid fa-explosion"></i></button>
+            <button class="big def"><i class="fa-solid fa-shield-halved"></i></button>
+        </div>
+        <div class="select-diff">
+            <button class="medium">Easy</button>
+            <button class="medium">Medium</button>
+            <button class="medium">Hard</button>
+        </div>
+        <div>
+            <p>Enter name:</p>
+            <input id="username" type="text">
+            <button class="play">Play</button>
+        </div>
     </div>
 
     <div class="score-area">
