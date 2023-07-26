@@ -20,19 +20,41 @@
 
     <div class="game-area">
         <div class="controls-area">
-            <button class="big attack"><i class="fa-solid fa-explosion"></i></button>
-            <button class="big def"><i class="fa-solid fa-shield-halved"></i></button>
+            <button class="big-btn btn red" data-type="attack"><i class="fa-solid fa-explosion"></i>Attack</button>
+            <button class="big-btn btn blue" data-type="defense"><i class="fa-solid fa-shield-halved"></i>Defense</button>
         </div>
         <div class="select-diff">
-            <button class="medium">Easy</button>
-            <button class="medium">Medium</button>
-            <button class="medium">Hard</button>
+            <button class="medium-btn btn" id="e-dif" data-type="easy">Easy</button>
+            <button class="medium-btn btn" id="m-dif" data-type="medium">Medium</button>
+            <button class="medium-btn btn" id="h-dif" data-type="hard">Hard</button>
         </div>
         <div>
             <p>Enter name:</p>
             <input id="username" type="text">
-            <button class="play">Play</button>
+            <button class="play btn" data-type="submit">Play</button>
         </div>
+    </div>
+
+    <div id="attack-game">
+        <p>Select a type to attack</p>
+        <button><img></button>
+        <button><img></button>
+        <button><img></button>
+        <button><img></button>
+        <button><img></button>
+        <button><img></button>
+        <img class="RandImg game-right">
+    </div>
+
+    <div id="def-game">
+        <p>Select a type to defend</p>
+        <button><img></button>
+        <button><img></button>
+        <button><img></button>
+        <button><img></button>
+        <button><img></button>
+        <button><img></button>
+        <img class="RandImg game-left">
     </div>
 
     <div class="score-area">
