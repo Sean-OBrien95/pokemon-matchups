@@ -101,16 +101,14 @@ body {
 .big-btn {
     height: 100px;
     width: 450px;
-    padding-top: 10px;
     background-color: white;
     font-size: 50px;
-    margin: 0 25px;
+    margin: 25px;
 }
 
 .medium-btn {
     height: 80px;
     width: 350px;
-    padding-top: 10px;
     background-color: white;
     font-size: 50px;
     margin: 5px;
@@ -136,4 +134,28 @@ body {
 .blue:hover {
     background-color: blue;
     color: white;
+}
+
+#e-dif:active,
+#e-dif:hover {
+    background-color: lightblue;
+    color: white;
+}
+
+#m-dif:active,
+#m-dif:hover {
+    background-color: yellow;
+    color: white;
+}
+
+#h-dif:active,
+#h-dif:hover {
+    background-color: pink;
+    color: white;
+}
+
+.play {
+    height: 40px;
+    width: 200px;
+    margin: 20px;
 }
