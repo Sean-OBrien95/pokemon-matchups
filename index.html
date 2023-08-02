@@ -24,41 +24,41 @@
 
     <div class="game-area">
         <div class="controls-area">
-            <button class="big-btn btn red" data-type="attack"><i class="fa-solid fa-explosion"></i> Attack</button>
-            <button class="big-btn btn blue" data-type="defense"><i class="fa-solid fa-shield-halved"></i>
+            <button class="big-btn btn red control" data-type="attack"><i class="fa-solid fa-explosion"></i> Attack</button>
+            <button class="big-btn btn blue control" data-type="defense"><i class="fa-solid fa-shield-halved"></i>
                 Defense</button>
         </div>
         <div class="select-diff">
-            <button class="medium-btn btn" id="e-dif" data-type="easy">Easy</button>
-            <button class="medium-btn btn" id="m-dif" data-type="medium">Medium</button>
-            <button class="medium-btn btn" id="h-dif" data-type="hard">Hard</button>
+            <button class="medium-btn btn control" id="e-dif" data-type="easy">Easy</button>
+            <button class="medium-btn btn control" id="m-dif" data-type="medium">Medium</button>
+            <button class="medium-btn btn control" id="h-dif" data-type="hard">Hard</button>
         </div>
         <div>
             <label>Enter name:</label> <input id="username" type="text">
             <br>
-            <button class="play btn" data-type="submit">Play</button>
+            <button class="play btn control" data-type="submit">Play</button>
         </div>
     </div>
 
     <div id="attack-game">
         <p>Select a type to attack</p>
-        <button><img src="assets/images/fire-type.png" alt="Fire-type button"></button>
-        <button><img src="assets/images/water-type.png" alt="Water-type button"></button>
-        <button><img src="assets/images/grass-type.png" alt="Grass-type button"></button>
-        <button><img src="assets/images/electric-type.png" alt="Electric-type button"></button>
-        <button><img src="assets/images/ground-type.png" alt="Ground-type button"></button>
-        <button><img src="assets/images/flying-type.png" alt="Flying-type button"></button>
+        <button><img src="assets/images/fire-type.png" alt="Fire-type button" data-choice="0" class="control"></button>
+        <button><img src="assets/images/water-type.png" alt="Water-type button" data-choice="1" class="control"></button>
+        <button><img src="assets/images/grass-type.png" alt="Grass-type button" data-choice="2" class="control"></button>
+        <button><img src="assets/images/electric-type.png" alt="Electric-type button" data-choice="3" class="control"></button>
+        <button><img src="assets/images/ground-type.png" alt="Ground-type button" data-choice="4" class="control"></button>
+        <button><img src="assets/images/flying-type.png" alt="Flying-type button" data-choice="5" class="control"></button>
         <img class="RandImg game-right">
     </div>
 
     <div id="def-game">
         <p>Select a type to defend</p>
-        <button><img src="assets/images/fire-type.png" alt="Fire-type button"></button>
-        <button><img src="assets/images/water-type.png" alt="Water-type button"></button>
-        <button><img src="assets/images/grass-type.png" alt="Grass-type button"></button>
-        <button><img src="assets/images/electric-type.png" alt="Electric-type button"></button>
-        <button><img src="assets/images/ground-type.png" alt="Ground-type button"></button>
-        <button><img src="assets/images/flying-type.png" alt="Flying-type button"></button>
+        <button><img src="assets/images/fire-type.png" alt="Fire-type button" data-choice="0" class="control"></button>
+        <button><img src="assets/images/water-type.png" alt="Water-type button" data-choice="1" class="control"></button>
+        <button><img src="assets/images/grass-type.png" alt="Grass-type button" data-choice="2" class="control"></button>
+        <button><img src="assets/images/electric-type.png" alt="Electric-type button" data-choice="3" class="control"></button>
+        <button><img src="assets/images/ground-type.png" alt="Ground-type button" data-choice="4" class="control"></button>
+        <button><img src="assets/images/flying-type.png" alt="Flying-type button" data-choice="5" class="control"></button>
         <img class="RandImg game-left">
     </div>
 
