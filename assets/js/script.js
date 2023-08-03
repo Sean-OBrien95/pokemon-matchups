@@ -2,7 +2,39 @@
 const buttons = document.getElementsByClassName("control");
 const rightScore = document.getElementById("score");
 const wrongScore = document.getElementById("wrong");
-const types = ["fire", "water", "grass", "electric", "ground", "flying"]
+
+const pokeTypes = [
+    {
+        "type": "fire",
+        "strength": "grass",
+        "weakness": "water" + "ground"
+    },
+    {
+        "type": "water",
+        "strength": "fire" + "ground",
+        "weakness": "grass" + "electric"
+    },
+    {
+        "type": "grass",
+        "strength": "water" + "ground",
+        "weakness": "fire" + "flying"
+    },
+    {
+        "type": "electric",
+        "strength": "water" + "flying",
+        "weakness": "ground"
+    },
+    {
+        "type": "ground",
+        "strength": "fire" + "electric",
+        "weakness": "grass" + "water"
+    },
+    {
+        "type": "flying",
+        "strength": "grass",
+        "weakness": "electric"
+    }
+];
 
 document.addEventListener("DOMContentLoaded", function () {
     let buttons = document.getElementsByTagName("button");
