@@ -2,6 +2,7 @@
 const buttons = document.getElementsByClassName("control");
 const rightScore = document.getElementById("score");
 const wrongScore = document.getElementById("wrong");
+const types = ["fire", "water", "grass", "electric", "ground", "flying"]
 
 document.addEventListener("DOMContentLoaded", function () {
     let buttons = document.getElementsByTagName("button");
@@ -17,7 +18,6 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 });
-
 
 
 function runGame() {
