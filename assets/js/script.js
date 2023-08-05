@@ -2,6 +2,8 @@
 const buttons = document.getElementsByClassName("control");
 const rightScore = document.getElementById("score");
 const wrongScore = document.getElementById("wrong");
+let score = 0;
+let wrongAnswers = 0;
 
 const pokeTypes = [
     {
@@ -68,9 +70,9 @@ function runGame() {
 
 }
 
-function checkAnswer(selectType, tagetType) {
+function checkAnswer(selectedType, targetedType) {
     const resultElement = dosumnet.getElementById("result");
-    if (selectedType === targetType) {
+    if (selectedType === targetedType) {
         resultElement.textContent = `You chose ${selectedType}. It's not very effective`;
         incrementWrongAnswer();
     } else if (isStrongAgainst(selectedType, targetType)) {
@@ -84,10 +86,15 @@ function checkAnswer(selectType, tagetType) {
 
 function incrementScore() {
 
+    let oldScore = parseInt(document.getElementById("score").innerHTML);
+    document.getElementById("score").innerText = ++oldScore;
+
 }
 
 function incrementWrongAnswer() {
 
+    let oldScore = parseInt(document.getElementById("wrong").innerHTML);
+    document.getElementById("wrong").innerText = ++oldScore;
 }
 
 function displayAttackQuestion() {
