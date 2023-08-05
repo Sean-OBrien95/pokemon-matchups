@@ -53,16 +53,26 @@ const pokeTypes = [
 
 document.addEventListener("DOMContentLoaded", function () {
     const attackControlButton = document.getElementById("attack-control");
+    const defenseControlButton = document.getElementById("def-control");
+
     const playButton = document.querySelector(".play");
 
     attackControlButton.addEventListener("click", function () {
         selectedGameType = "attack";
+        attackControlButton.classList.add("active");
+        defenseControlButton.classList.remove("active");
+    });
+
+    defenseControlButton.addEventLsitener("click", function () {
+        selectedGameType = "defense";
+        defenseControlButton.classList.add("active");
+        attackControlButton.classList.add("defense");
     });
 
     playButton.addEventListener("click", function () {
         if (selectedGameType === "attack") {
             displayAttackQuestion();
-        } else (selectedGameType === "defense"); {
+        } else {
             displayDefenseQuestion();
         }
     });
@@ -74,7 +84,7 @@ function runGame() {
 }
 
 function checkAnswer(selectedType, targetedType) {
-    const resultElement = dosumnet.getElementById("result");
+    const resultElement = document.getElementById("result");
     if (selectedType === targetedType) {
         resultElement.textContent = `You chose ${selectedType}. It's not very effective`;
         incrementWrongAnswer();
@@ -106,7 +116,7 @@ function displayAttackQuestion() {
     const targetImageElement = document.getElementById("target-image");
     targetImageElement.src = targetType.imageSrc;
     targetImageElement.alt = targetType.alt;
-    const attackButtonsContainer = document.getElementById(attack - buttons);
+    const attackButtonsContainer = document.getElementById("attack-buttons");
     attackButtonsContainer.innerHTML = "";
     for (const type of pokeTypes) {
         const button = document.createElement("button");
