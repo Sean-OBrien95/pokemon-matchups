@@ -63,15 +63,16 @@ document.addEventListener("DOMContentLoaded", function () {
         defenseControlButton.classList.remove("active");
     });
 
-    defenseControlButton.addEventLsitener("click", function () {
+    defenseControlButton.addEventListener("click", function () {
         selectedGameType = "defense";
         defenseControlButton.classList.add("active");
-        attackControlButton.classList.add("defense");
+        attackControlButton.classList.remove("active");
     });
 
     playButton.addEventListener("click", function () {
         if (selectedGameType === "attack") {
-            displayAttackQuestion();
+            document.getElementById("attack-game").classList.remove("hidden");
+            runGame();
         } else {
             displayDefenseQuestion();
         }
@@ -80,7 +81,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 function runGame() {
-
+    displayAttackQuestion();
 }
 
 function checkAnswer(selectedType, targetedType) {
@@ -88,7 +89,7 @@ function checkAnswer(selectedType, targetedType) {
     if (selectedType === targetedType) {
         resultElement.textContent = `You chose ${selectedType}. It's not very effective`;
         incrementWrongAnswer();
-    } else if (isStrongAgainst(selectedType, targetType)) {
+    } else if (isStrongAgainst(selectedType, targetedType)) {
         resultElement.textContent = `You chose ${selectedType}. It's super effective!`;
         incrementScore();
     } else {
