@@ -68,8 +68,18 @@ function runGame() {
 
 }
 
-function checkAnswer() {
-
+function checkAnswer(selectType, tagetType) {
+    const resultElement = dosumnet.getElementById("result");
+    if (selectedType === targetType) {
+        resultElement.textContent = `You chose ${selectedType}. It's not very effective`;
+        incrementWrongAnswer();
+    } else if (isStrongAgainst(selectedType, targetType)) {
+        resultElement.textContent = `You chose ${selectedType}. It's super effective!`;
+        incrementScore();
+    } else {
+        resultElement.textContent = `You chose ${selectedType}. It's not very effective`;
+        incrementWrongAnswer();
+    }
 }
 
 function incrementScore() {
