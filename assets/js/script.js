@@ -4,6 +4,7 @@ const rightScore = document.getElementById("score");
 const wrongScore = document.getElementById("wrong");
 let score = 0;
 let wrongAnswers = 0;
+let selectedGameType = null;
 
 const pokeTypes = [
     {
@@ -51,18 +52,20 @@ const pokeTypes = [
 ];
 
 document.addEventListener("DOMContentLoaded", function () {
-    let buttons = document.getElementsByTagName("button");
+    const attackControlButton = document.getElementById("attack-control");
+    const playButton = document.querySelector(".play");
 
-    for (let button of buttons) {
-        button.addEventListener("click", function () {
-            if (this.getAttribute("data-type") === "submit") {
-                alert("let's play!");
-            } else {
-                let gameType = this.getAttribute("data-type");
-                alert(`You clicked ${gameType}`);
-            }
-        });
-    }
+    attackControlButton.addEventListener("click", function () {
+        selectedGameType = "attack";
+    });
+
+    playButton.addEventListener("click", function () {
+        if (selectedGameType === "attack") {
+            displayAttackQuestion();
+        } else (selectedGameType === "defense"); {
+            displayDefenseQuestion();
+        }
+    });
 });
 
 
