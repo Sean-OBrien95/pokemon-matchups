@@ -5,34 +5,46 @@ const wrongScore = document.getElementById("wrong");
 
 const pokeTypes = [
     {
-        "type": "fire",
-        "strength": "grass",
-        "weakness": "water" + "ground"
+        type: "fire",
+        strength: "grass",
+        weakness: "water" + "ground",
+        imageSrc: "../images/fire-type.png",
+        alt: "Fire type image"
     },
     {
-        "type": "water",
-        "strength": "fire" + "ground",
-        "weakness": "grass" + "electric"
+        type: "water",
+        strength: "fire" + "ground",
+        weakness: "grass" + "electric",
+        imageSrc: "../images/water-type.png",
+        alt: "Water type image"
     },
     {
-        "type": "grass",
-        "strength": "water" + "ground",
-        "weakness": "fire" + "flying"
+        type: "grass",
+        strength: "water" + "ground",
+        weakness: "fire" + "flying",
+        imageSrc: "../images/grass-type.png",
+        alt: "Grass type image"
     },
     {
-        "type": "electric",
-        "strength": "water" + "flying",
-        "weakness": "ground"
+        type: "electric",
+        strength: "water" + "flying",
+        weakness: "ground",
+        imageSrc: "../images/electric-type.png",
+        alt: "Electric type image"
     },
     {
-        "type": "ground",
-        "strength": "fire" + "electric",
-        "weakness": "grass" + "water"
+        type: "ground",
+        strength: "fire" + "electric",
+        weakness: "grass" + "water",
+        imageSrc: "../images/ground-type.png",
+        alt: "Ground type image"
     },
     {
-        "type": "flying",
-        "strength": "grass",
-        "weakness": "electric"
+        type: "flying",
+        strength: "grass",
+        weakness: "electric",
+        imageSrc: "../images/flying-type.png",
+        alt: "Flying type image"
     }
 ];
 
