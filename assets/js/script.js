@@ -81,7 +81,25 @@ function incrementWrongAnswer() {
 }
 
 function displayAttackQuestion() {
-
+    const targetIndex = Math.floor(Math.random() * pokeTypes.length);
+    const targetType = pokeTypes[targetIndex];
+    const targetImageElement = document.getElementById("target-image");
+    targetImageElement.src = targetType.imageSrc;
+    targetImageElement.alt = targetType.alt;
+    const attackButtonsContainer = document.getElementById(attack - buttons);
+    attackButtonsContainer.innerHTML = "";
+    for (const type of pokeTypes) {
+        const button = document.createElement("button");
+        const typeImage = document.createElement("img");
+        typeImage.src = type.imageSrc;
+        typeImage.alt = type.alt;
+        button.setAttribute("data-type", type.type);
+        button.appendChild(typeImage);
+        button.addEventListener("click", function () {
+            checkAnswer(type.type, targetType.type);
+        });
+        attackButtonsContainer.appendChild(button);
+    }
 }
 
 function displayDefenseQuestion() {
