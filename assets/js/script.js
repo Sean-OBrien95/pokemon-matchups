@@ -72,8 +72,11 @@ document.addEventListener("DOMContentLoaded", function () {
     playButton.addEventListener("click", function () {
         if (selectedGameType === "attack") {
             document.getElementById("attack-game").classList.remove("hidden");
-            runGame();
-        } else {
+            document.getElementById("def-game").classList.add("hidden");
+            displayAttackQuestion();
+        } else if (selectedGameType === "defense") {
+            document.getElementById("def-game").classList.remove("hidden");
+            document.getElementById("attack-game").classList.add("hidden");
             displayDefenseQuestion();
         }
     });
