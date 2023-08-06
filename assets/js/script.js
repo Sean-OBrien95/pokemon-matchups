@@ -139,7 +139,7 @@ function displayAttackQuestion() {
         button.setAttribute("data-type", type.type);
         button.appendChild(typeImage);
         button.addEventListener("click", function () {
-            checkAnswer(type.type, targetType.type);
+            checkAttackAnswer(type.type, targetType.type);
         });
         attackButtonsContainer.appendChild(button);
     }
