@@ -5,6 +5,7 @@ const wrongScore = document.getElementById("wrong");
 let score = 0;
 let wrongAnswers = 0;
 let selectedGameType = null;
+let defenseTargetType = null;
 
 const pokeTypes = [
     {
@@ -169,20 +170,20 @@ function isStrongAgainst(selectedType, targetedType) {
 
 function displayDefenseQuestion() {
 
-    const resultElement = getElementById("result");
+    const resultElement = document.getElementById("result");
     resultElement.textContent = "";
 
     const targetImages = document.getElementsByClassName("target-image");
-    const targetType = pokeTypes[Math.floor(Math.random() * pokeTypes.length)];
+    const defenseTargetType = pokeTypes[Math.floor(Math.random() * pokeTypes.length)];
 
     for (const targetImageElement of targetImages) {
-        targetImageElement.setAttribute("src", targetType.imageSrc);
-        targetImageElement.setAttribute("alt", targetType.alt);
+        targetImageElement.setAttribute("src", defenseTargetType.imageSrc);
+        targetImageElement.setAttribute("alt", defenseTargetType.alt);
     }
 
     const randomTypeImage = document.querySelector(".random-type-image");
-    randomTypeImage.src = targetType.imageSrc;
-    randomTypeImage.alt = targetType.alt;
+    randomTypeImage.src = defenseTargetType.imageSrc;
+    randomTypeImage.alt = defenseTargetType.alt;
 
     const defenseButtonsContainer = document.getElementById("def-buttons");
     defenseButtonsContainer.innerHTML = "";
@@ -195,7 +196,7 @@ function displayDefenseQuestion() {
         button.setAttribute("data-type", type.type);
         button.appendChild(typeImage);
         button.addEventListener("click", function () {
-            checkDefenseAnswer(type.type, targetType.type);
+            checkDefenseAnswer(type.type, defenseTargetType.type);
         });
         defenseButtonsContainer.appendChild(button);
     }
