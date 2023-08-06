@@ -10,35 +10,35 @@ const pokeTypes = [
     {
         type: "fire",
         strength: "grass",
-        weakness: "water" + "ground",
+        weakness: ["water" + "ground"],
         imageSrc: "../images/fire-type.png",
         alt: "Fire type image"
     },
     {
         type: "water",
-        strength: "fire" + "ground",
-        weakness: "grass" + "electric",
+        strength: ["fire" + "ground"],
+        weakness: ["grass" + "electric"],
         imageSrc: "../images/water-type.png",
         alt: "Water type image"
     },
     {
         type: "grass",
-        strength: "water" + "ground",
-        weakness: "fire" + "flying",
+        strength: ["water" + "ground"],
+        weakness: ["fire" + "flying"],
         imageSrc: "../images/grass-type.png",
         alt: "Grass type image"
     },
     {
         type: "electric",
-        strength: "water" + "flying",
+        strength: ["water" + "flying"],
         weakness: "ground",
         imageSrc: "../images/electric-type.png",
         alt: "Electric type image"
     },
     {
         type: "ground",
-        strength: "fire" + "electric",
-        weakness: "grass" + "water",
+        strength: ["fire" + "electric"],
+        weakness: ["grass" + "water"],
         imageSrc: "../images/ground-type.png",
         alt: "Ground type image"
     },
@@ -112,13 +112,17 @@ function incrementWrongAnswer() {
 }
 
 function displayAttackQuestion() {
-    const targetIndex = Math.floor(Math.random() * pokeTypes.length);
-    const targetType = pokeTypes[targetIndex];
-    const targetImageElement = document.getElementById("target-image");
-    targetImageElement.src = targetType.imageSrc;
-    targetImageElement.alt = targetType.alt;
+    const targetImages = document.getElementsByClassName("target-image");
+    const targetType = pokeTypes[Math.floor(Math.random() * pokeTypes.length)];
+
+    for (const targetImageElement of targetImages) {
+        targetImageElement.src = targetType.imageSrc;
+        targetImageElement.alt = targetType.alt;
+    }
+
     const attackButtonsContainer = document.getElementById("attack-buttons");
     attackButtonsContainer.innerHTML = "";
+
     for (const type of pokeTypes) {
         const button = document.createElement("button");
         const typeImage = document.createElement("img");
