@@ -120,6 +120,10 @@ function displayAttackQuestion() {
         targetImageElement.setAttribute("alt", targetType.alt);
     }
 
+    const randomTypeImage = document.querySelector(".random-type-image");
+    randomTypeImage.src = targetType.imageSrc;
+    randomTypeImage.alt = targetType.alt;
+
     const attackButtonsContainer = document.getElementById("attack-buttons");
     attackButtonsContainer.innerHTML = "";
 
