@@ -198,3 +198,8 @@ function displayDefenseQuestion() {
     }
 
 }
+
+function isWeakAgainst(selectedType, targetedType) {
+    const type = pokeTypes.find((t) => t.type === selectedType);
+    return type.weakness.includes(targetedType);
+}
