@@ -10,35 +10,35 @@ const pokeTypes = [
     {
         type: "fire",
         strength: "grass",
-        weakness: ["water" + "ground"],
+        weakness: ["water", "ground"],
         imageSrc: "assets/images/fire-type.png",
         alt: "Fire type image"
     },
     {
         type: "water",
-        strength: ["fire" + "ground"],
-        weakness: ["grass" + "electric"],
+        strength: ["fire", "ground"],
+        weakness: ["grass", "electric"],
         imageSrc: "assets/images/water-type.png",
         alt: "Water type image"
     },
     {
         type: "grass",
-        strength: ["water" + "ground"],
-        weakness: ["fire" + "flying"],
+        strength: ["water", "ground"],
+        weakness: ["fire", "flying"],
         imageSrc: "assets/images/grass-type.png",
         alt: "Grass type image"
     },
     {
         type: "electric",
-        strength: ["water" + "flying"],
+        strength: ["water", "flying"],
         weakness: "ground",
         imageSrc: "assets/images/electric-type.png",
         alt: "Electric type image"
     },
     {
         type: "ground",
-        strength: ["fire" + "electric"],
-        weakness: ["grass" + "water"],
+        strength: ["fire", "electric"],
+        weakness: ["grass", "water"],
         imageSrc: "assets/images/ground-type.png",
         alt: "Ground type image"
     },
@@ -112,6 +112,9 @@ function incrementWrongAnswer() {
 }
 
 function displayAttackQuestion() {
+    const resultElement = document.getElementById("result");
+    resultElement.textContent = "";
+
     const targetImages = document.getElementsByClassName("target-image");
     const targetType = pokeTypes[Math.floor(Math.random() * pokeTypes.length)];
 
@@ -139,6 +142,11 @@ function displayAttackQuestion() {
         });
         attackButtonsContainer.appendChild(button);
     }
+}
+
+function isStrongAgainst(selectedType, targetedType) {
+    const type = pokeTypes.find((t) => t.type === selectedType);
+    return type.strength.includes(targetedType);
 }
 
 function displayDefenseQuestion() {
