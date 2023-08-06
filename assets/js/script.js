@@ -11,42 +11,42 @@ const pokeTypes = [
         type: "fire",
         strength: "grass",
         weakness: ["water" + "ground"],
-        imageSrc: "../images/fire-type.png",
+        imageSrc: "assets/images/fire-type.png",
         alt: "Fire type image"
     },
     {
         type: "water",
         strength: ["fire" + "ground"],
         weakness: ["grass" + "electric"],
-        imageSrc: "../images/water-type.png",
+        imageSrc: "assets/images/water-type.png",
         alt: "Water type image"
     },
     {
         type: "grass",
         strength: ["water" + "ground"],
         weakness: ["fire" + "flying"],
-        imageSrc: "../images/grass-type.png",
+        imageSrc: "assets/images/grass-type.png",
         alt: "Grass type image"
     },
     {
         type: "electric",
         strength: ["water" + "flying"],
         weakness: "ground",
-        imageSrc: "../images/electric-type.png",
+        imageSrc: "assets/images/electric-type.png",
         alt: "Electric type image"
     },
     {
         type: "ground",
         strength: ["fire" + "electric"],
         weakness: ["grass" + "water"],
-        imageSrc: "../images/ground-type.png",
+        imageSrc: "assets/images/ground-type.png",
         alt: "Ground type image"
     },
     {
         type: "flying",
         strength: "grass",
         weakness: "electric",
-        imageSrc: "../images/flying-type.png",
+        imageSrc: "assets/images/flying-type.png",
         alt: "Flying type image"
     }
 ];
@@ -116,8 +116,8 @@ function displayAttackQuestion() {
     const targetType = pokeTypes[Math.floor(Math.random() * pokeTypes.length)];
 
     for (const targetImageElement of targetImages) {
-        targetImageElement.src = targetType.imageSrc;
-        targetImageElement.alt = targetType.alt;
+        targetImageElement.setAttribute("src", targetType.imageSrc);
+        targetImageElement.setAttribute("alt", targetType.alt);
     }
 
     const attackButtonsContainer = document.getElementById("attack-buttons");
