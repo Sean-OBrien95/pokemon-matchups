@@ -181,7 +181,7 @@ function displayDefenseQuestion() {
         targetImageElement.setAttribute("alt", defenseTargetType.alt);
     }
 
-    const randomTypeImage = document.querySelector(".random-type-image");
+    const randomTypeImage = document.querySelector(".random-type-def");
     randomTypeImage.src = defenseTargetType.imageSrc;
     randomTypeImage.alt = defenseTargetType.alt;
 
