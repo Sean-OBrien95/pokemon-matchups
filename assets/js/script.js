@@ -6,6 +6,11 @@ let score = 0;
 let wrongAnswers = 0;
 let selectedGameType = null;
 let defenseTargetType = null;
+let numRounds = 3;
+let currentRound = 1;
+let difficulty = "easy";
+let timerDuration = getTimerDuration(difficulty);
+let timerInterval;
 
 const pokeTypes = [
     {
