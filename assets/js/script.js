@@ -93,6 +93,15 @@ function runGame() {
     displayAttackQuestion();
 }
 
+function getTimerDuration(difficulty) {
+    switch (difficulty) {
+        case "easy": return 30;
+        case "medium": return 20;
+        case "hard": return 10;
+        default: return 30;
+    }
+}
+
 function checkAttackAnswer(selectedType, targetedType) {
     const resultElement = document.getElementById("result");
     if (selectedType === targetedType) {
