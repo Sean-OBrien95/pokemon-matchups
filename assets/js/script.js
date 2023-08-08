@@ -90,8 +90,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 function runGame() {
-    displayAttackQuestion();
+    currentRound = 1;
+    playNextRound();
 }
+
+
 
 function getTimerDuration(difficulty) {
     switch (difficulty) {
@@ -121,7 +124,7 @@ function checkDefenseAnswer(selectedType, targetedType) {
     if (selectedType === targetedType) {
         resultElement.textContent = `You chose ${selectedType}. It's not very effective`;
         incrementWrongAnswer();
-    } else if (isWeakAgainst(selectedType, targetedType)) {
+    } else if (isWeaknessOf(selectedType, targetedType)) {
         resultElement.textContent = `You chose ${selectedType}. It's super effective!`;
         incrementScore();
     } else {
@@ -217,7 +220,7 @@ function displayDefenseQuestion() {
 
 }
 
-function isWeakAgainst(selectedType, targetedType) {
-    const type = pokeTypes.find((t) => t.type === selectedType);
-    return type.weakness.includes(targetedType);
+function isWeaknessOf(selectedType, targetedType) {
+    const type = pokeTypes.find((t) => t.type === targetedType);
+    return type.weakness.includes(selectedType);
 }
