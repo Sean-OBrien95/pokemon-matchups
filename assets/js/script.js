@@ -11,6 +11,8 @@ let currentRound = 1;
 let difficulty = "easy";
 let timerDuration = getTimerDuration(difficulty);
 let timerInterval;
+let overallScore = 0;
+let overallWrongAnswers = 0;
 
 const pokeTypes = [
     {
@@ -64,7 +66,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const playButton = document.querySelector(".play");
 
     const easyButton = document.getElementById("e-dif");
-    const mediumButton = document.getElementById("m-def");
+    const mediumButton = document.getElementById("m-dif");
     const hardButton = document.getElementById("h-dif");
 
     easyButton.addEventListener("click", function () {
@@ -95,26 +97,25 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     playButton.addEventListener("click", function () {
-        if (selectedGameType === "attack") {
-            document.getElementById("attack-game").classList.remove("hidden");
-            document.getElementById("def-game").classList.add("hidden");
-            displayAttackQuestion();
-        } else if (selectedGameType === "defense") {
-            document.getElementById("def-game").classList.remove("hidden");
-            document.getElementById("attack-game").classList.add("hidden");
-            displayDefenseQuestion();
+        if (selectedGameType && difficulty) {
+            document.getElementById("home").classList.add("hidden");
+            runGame();
+        } else {
+            alert("Please select both the game type and difficulty before starting.");
         }
     });
 });
 
 function runGame() {
     currentRound = 1;
+    overallScore = 0;
+    overallWrongAnswers = 0;
     playNextRound();
 }
 
 function playNextRound() {
     if (currentRound <= numRounds) {
-        if (slectedGameType === "attack") {
+        if (selectedGameType === "attack") {
             document.getElementById("attack-game").classList.remove("hidden");
             document.getElementById("def-game").classList.add("hidden");
             displayAttackQuestion();
@@ -126,7 +127,7 @@ function playNextRound() {
     } else {
         if (overallScore > overallWrongAnswers) {
             alert("Congratulations! You won the best of 3 series.");
-        } else (overallScore < overallWrongAnswers) {
+        } else if (overallScore < overallWrongAnswers) {
             alert("You lost the best of 3 series. Try again!");
         }
     }
@@ -134,7 +135,7 @@ function playNextRound() {
     overallScore = 0;
     overallWrongAnswers = 0;
     selectedGameType = null;
-    document.getElementBy("home").classList.remove("hidden");
+    document.getElementById("home").classList.remove("hidden");
     document.getElementById("result").textContent = "";
     document.getElementById("score").innerText = overallScore;
     document.getElementById("wrong").innerText = overallWrongAnswers;
@@ -147,6 +148,19 @@ function getTimerDuration(difficulty) {
         case "hard": return 10;
         default: return 30;
     }
+}
+
+function startTimer() {
+    let timeRemaining = timerDuration;
+    timerInterval = setInterval(function () {
+        document.getElementById("timer").innerText(timeRemaining);
+        timeRemaining--;
+        if (timeRemaining < 0) {
+            clearInterval(timerInterval);
+            currentRound++;
+            playNextRound();
+        }
+    }, 1000);
 }
 
 function checkAttackAnswer(selectedType, targetedType) {
