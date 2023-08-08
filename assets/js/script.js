@@ -63,6 +63,25 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const playButton = document.querySelector(".play");
 
+    const easyButton = document.getElementById("e-dif");
+    const mediumButton = document.getElementById("m-def");
+    const hardButton = document.getElementById("h-dif");
+
+    easyButton.addEventListener("click", function () {
+        difficulty = "easy";
+        timerDuration = getTimerDuration(difficulty);
+    });
+
+    mediumButton.addEventListener("click", function () {
+        difficulty = "medium";
+        timerDuration = getTimerDuration(difficulty);
+    });
+
+    hardButton.addEventListener("click", function () {
+        difficulty = "hard";
+        timerDuration = getTimerDuration(difficulty);
+    });
+
     attackControlButton.addEventListener("click", function () {
         selectedGameType = "attack";
         attackControlButton.classList.add("active");
@@ -88,13 +107,38 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
-
 function runGame() {
     currentRound = 1;
     playNextRound();
 }
 
-
+function playNextRound() {
+    if (currentRound <= numRounds) {
+        if (slectedGameType === "attack") {
+            document.getElementById("attack-game").classList.remove("hidden");
+            document.getElementById("def-game").classList.add("hidden");
+            displayAttackQuestion();
+        } else if (selectedGameType === "defense") {
+            document.getElementById("def-game").classList.remove("hidden");
+            document.getElementById("attack-game").classList.add("hidden");
+            displayDefenseQuestion();
+        }
+    } else {
+        if (overallScore > overallWrongAnswers) {
+            alert("Congratulations! You won the best of 3 series.");
+        } else (overallScore < overallWrongAnswers) {
+            alert("You lost the best of 3 series. Try again!");
+        }
+    }
+    currentRound = 1;
+    overallScore = 0;
+    overallWrongAnswers = 0;
+    selectedGameType = null;
+    document.getElementBy("home").classList.remove("hidden");
+    document.getElementById("result").textContent = "";
+    document.getElementById("score").innerText = overallScore;
+    document.getElementById("wrong").innerText = overallWrongAnswers;
+}
 
 function getTimerDuration(difficulty) {
     switch (difficulty) {
