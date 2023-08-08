@@ -72,16 +72,25 @@ document.addEventListener("DOMContentLoaded", function () {
     easyButton.addEventListener("click", function () {
         difficulty = "easy";
         timerDuration = getTimerDuration(difficulty);
+        easyButton.classList.add("active");
+        mediumButton.classList.remove("active");
+        hardButton.classList.remove("active");
     });
 
     mediumButton.addEventListener("click", function () {
         difficulty = "medium";
         timerDuration = getTimerDuration(difficulty);
+        easyButton.classList.remove("active");
+        mediumButton.classList.add("active");
+        hardButton.classList.remove("active");
     });
 
     hardButton.addEventListener("click", function () {
         difficulty = "hard";
         timerDuration = getTimerDuration(difficulty);
+        easyButton.classList.remove("active");
+        mediumButton.classList.remove("active");
+        hardButton.classList.add("active");
     });
 
     attackControlButton.addEventListener("click", function () {
@@ -110,6 +119,7 @@ function runGame() {
     currentRound = 1;
     overallScore = 0;
     overallWrongAnswers = 0;
+    startTimer();
     playNextRound();
 }
 
@@ -153,7 +163,7 @@ function getTimerDuration(difficulty) {
 function startTimer() {
     let timeRemaining = timerDuration;
     timerInterval = setInterval(function () {
-        document.getElementById("timer").innerText(timeRemaining);
+        document.getElementById("timer").innerText = timeRemaining;
         timeRemaining--;
         if (timeRemaining < 0) {
             clearInterval(timerInterval);
