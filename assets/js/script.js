@@ -17,7 +17,7 @@ let overallWrongAnswers = 0;
 const pokeTypes = [
     {
         type: "fire",
-        strength: "grass",
+        strength: ["grass"],
         weakness: ["water", "ground"],
         imageSrc: "assets/images/fire-type.png",
         alt: "Fire type image"
@@ -39,7 +39,7 @@ const pokeTypes = [
     {
         type: "electric",
         strength: ["water", "flying"],
-        weakness: "ground",
+        weakness: ["ground"],
         imageSrc: "assets/images/electric-type.png",
         alt: "Electric type image"
     },
@@ -52,8 +52,8 @@ const pokeTypes = [
     },
     {
         type: "flying",
-        strength: "grass",
-        weakness: "electric",
+        strength: ["grass"],
+        weakness: ["electric"],
         imageSrc: "assets/images/flying-type.png",
         alt: "Flying type image"
     }
@@ -128,11 +128,11 @@ function playNextRound() {
         if (selectedGameType === "attack") {
             document.getElementById("attack-game").classList.remove("hidden");
             document.getElementById("def-game").classList.add("hidden");
-            displayAttackQuestion();
+            displayGeneralQuestion(selectedGameType);
         } else if (selectedGameType === "defense") {
             document.getElementById("def-game").classList.remove("hidden");
             document.getElementById("attack-game").classList.add("hidden");
-            displayDefenseQuestion();
+            displayGeneralQuestion(selectedGameType);
         }
     } else {
         if (overallScore > overallWrongAnswers) {
@@ -214,7 +214,86 @@ function incrementWrongAnswer() {
     document.getElementById("wrong").innerText = ++oldScore;
 }
 
-function displayAttackQuestion() {
+// function displayAttackQuestion() {
+
+//     const resultElement = document.getElementById("result");
+//     resultElement.textContent = "";
+
+//     const targetImages = document.getElementsByClassName("target-image");
+//     const targetType = pokeTypes[Math.floor(Math.random() * pokeTypes.length)];
+
+//     for (const targetImageElement of targetImages) {
+//         targetImageElement.setAttribute("src", targetType.imageSrc);
+//         targetImageElement.setAttribute("alt", targetType.alt);
+//     }
+
+//     const randomTypeImage = document.querySelector(".random-type-image");
+//     randomTypeImage.src = targetType.imageSrc;
+//     randomTypeImage.alt = targetType.alt;
+
+//     const attackButtonsContainer = document.getElementById("attack-buttons"); /**move up */
+//     attackButtonsContainer.innerHTML = "";
+
+//     for (const type of pokeTypes) {
+//         const button = document.createElement("button");
+//         const typeImage = document.createElement("img");
+//         typeImage.src = type.imageSrc;
+//         typeImage.alt = type.alt;
+//         button.setAttribute("data-type", type.type);
+//         button.appendChild(typeImage);
+//         button.addEventListener("click", function () {
+//             checkAttackAnswer(type.type, targetType.type);
+//         });
+//         attackButtonsContainer.appendChild(button);
+//     }
+// }
+
+function isStrongAgainst(selectedType, targetedType) {
+    const type = pokeTypes.find((t) => t.type === selectedType);
+    return type.strength.includes(targetedType);
+}
+
+// function displayDefenseQuestion() {
+
+//     const resultElement = document.getElementById("result");
+//     resultElement.textContent = "";
+
+//     const targetImages = document.getElementsByClassName("target-image");
+//     const defenseTargetType = pokeTypes[Math.floor(Math.random() * pokeTypes.length)];
+
+//     for (const targetImageElement of targetImages) {
+//         targetImageElement.setAttribute("src", defenseTargetType.imageSrc);
+//         targetImageElement.setAttribute("alt", defenseTargetType.alt);
+//     }
+
+//     const randomTypeImage = document.querySelector(".random-type-def");
+//     randomTypeImage.src = defenseTargetType.imageSrc;
+//     randomTypeImage.alt = defenseTargetType.alt;
+
+//     const defenseButtonsContainer = document.getElementById("def-buttons");
+//     defenseButtonsContainer.innerHTML = "";
+
+//     for (const type of pokeTypes) {
+//         const button = document.createElement("button");
+//         const typeImage = document.createElement("img");
+//         typeImage.src = type.imageSrc;
+//         typeImage.alt = type.alt;
+//         button.setAttribute("data-type", type.type);
+//         button.appendChild(typeImage);
+//         button.addEventListener("click", function () {
+//             checkDefenseAnswer(type.type, defenseTargetType.type);
+//         });
+//         defenseButtonsContainer.appendChild(button);
+//     }
+
+// }
+
+function isWeaknessOf(selectedType, targetedType) {
+    const type = pokeTypes.find((t) => t.type === targetedType);
+    return type.weakness.includes(selectedType);
+}
+
+function displayGeneralQuestion(selectedType) {
 
     const resultElement = document.getElementById("result");
     resultElement.textContent = "";
@@ -228,11 +307,19 @@ function displayAttackQuestion() {
     }
 
     const randomTypeImage = document.querySelector(".random-type-image");
+
     randomTypeImage.src = targetType.imageSrc;
     randomTypeImage.alt = targetType.alt;
 
-    const attackButtonsContainer = document.getElementById("attack-buttons");
-    attackButtonsContainer.innerHTML = "";
+    let buttonsContainer = "";
+
+    if (selectedType == "attack") {
+        buttonsContainer = document.getElementById("attack-buttons");
+    } else if (selectedType == "defense") {
+        buttonsContainer = document.getElementById("defense-buttons");
+    }
+
+    buttonsContainer.innerHTML = "";
 
     for (const type of pokeTypes) {
         const button = document.createElement("button");
@@ -242,53 +329,12 @@ function displayAttackQuestion() {
         button.setAttribute("data-type", type.type);
         button.appendChild(typeImage);
         button.addEventListener("click", function () {
-            checkAttackAnswer(type.type, targetType.type);
+            if (selectedType == "attack") {
+                checkAttackAnswer(type.type, targetType.type);
+            } else if (selectedType == "defense") {
+                checkDefenseAnswer(type.type, targetType.type);
+            }
         });
-        attackButtonsContainer.appendChild(button);
+        buttonsContainer.appendChild(button);
     }
-}
-
-function isStrongAgainst(selectedType, targetedType) {
-    const type = pokeTypes.find((t) => t.type === selectedType);
-    return type.strength.includes(targetedType);
-}
-
-function displayDefenseQuestion() {
-
-    const resultElement = document.getElementById("result");
-    resultElement.textContent = "";
-
-    const targetImages = document.getElementsByClassName("target-image");
-    const defenseTargetType = pokeTypes[Math.floor(Math.random() * pokeTypes.length)];
-
-    for (const targetImageElement of targetImages) {
-        targetImageElement.setAttribute("src", defenseTargetType.imageSrc);
-        targetImageElement.setAttribute("alt", defenseTargetType.alt);
-    }
-
-    const randomTypeImage = document.querySelector(".random-type-def");
-    randomTypeImage.src = defenseTargetType.imageSrc;
-    randomTypeImage.alt = defenseTargetType.alt;
-
-    const defenseButtonsContainer = document.getElementById("def-buttons");
-    defenseButtonsContainer.innerHTML = "";
-
-    for (const type of pokeTypes) {
-        const button = document.createElement("button");
-        const typeImage = document.createElement("img");
-        typeImage.src = type.imageSrc;
-        typeImage.alt = type.alt;
-        button.setAttribute("data-type", type.type);
-        button.appendChild(typeImage);
-        button.addEventListener("click", function () {
-            checkDefenseAnswer(type.type, defenseTargetType.type);
-        });
-        defenseButtonsContainer.appendChild(button);
-    }
-
-}
-
-function isWeaknessOf(selectedType, targetedType) {
-    const type = pokeTypes.find((t) => t.type === targetedType);
-    return type.weakness.includes(selectedType);
 }
