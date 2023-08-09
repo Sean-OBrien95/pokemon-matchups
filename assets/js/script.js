@@ -13,6 +13,7 @@ let timerDuration = getTimerDuration(difficulty);
 let timerInterval;
 let overallScore = 0;
 let overallWrongAnswers = 0;
+playButton.disabled = true;
 
 const pokeTypes = [
     {
@@ -108,19 +109,34 @@ document.addEventListener("DOMContentLoaded", function () {
     playButton.addEventListener("click", function () {
         if (selectedGameType && difficulty) {
             document.getElementById("home").classList.add("hidden");
-            runGame();
+            if (selectedGameType === "attack" || selectedGameType === "defense") {
+                runGame();
+            } else {
+                alert("Please select the game type (attack or defense) before starting.");
+            }
         } else {
             alert("Please select both the game type and difficulty before starting.");
         }
     });
+
 });
 
+function updatePlayButton() {
+    if (selectedGameType && difficulty) {
+        playButton.disabled = false;
+    } else {
+        playButton.disabled = true;
+    }
+}
+
 function runGame() {
-    currentRound = 1;
-    overallScore = 0;
-    overallWrongAnswers = 0;
-    startTimer();
-    playNextRound();
+    if (selectedGameType && difficulty) {
+        currentRound = 1;
+        overallScore = 0;
+        overallWrongAnswers = 0;
+        startTimer();
+        playNextRound();
+    }
 }
 
 function playNextRound() {
@@ -141,9 +157,9 @@ function playNextRound() {
             alert("You lost the best of 3 series. Try again!");
         }
     }
-    currentRound = 1;
-    overallScore = 0;
-    overallWrongAnswers = 0;
+    // currentRound = 1;
+    // overallScore = 0;
+    // overallWrongAnswers = 0;
     selectedGameType = null;
     document.getElementById("home").classList.remove("hidden");
     document.getElementById("result").textContent = "";
@@ -190,13 +206,13 @@ function checkAttackAnswer(selectedType, targetedType) {
 function checkDefenseAnswer(selectedType, targetedType) {
     const resultElement = document.getElementById("result");
     if (selectedType === targetedType) {
-        resultElement.textContent = `You chose ${selectedType}. It's not very effective`;
+        resultElement.textContent = `You chose ${selectedType}. It's not very effective.`;
         incrementWrongAnswer();
-    } else if (isWeaknessOf(selectedType, targetedType)) {
+    } else if (isWeaknessOf(targetedType, selectedType)) {
         resultElement.textContent = `You chose ${selectedType}. It's super effective!`;
         incrementScore();
     } else {
-        resultElement.textContent = `You chose ${selectedType}. It's not very effective`;
+        resultElement.textContent = `You chose ${selectedType}. It's not very effective.`;
         incrementWrongAnswer();
     }
 }
