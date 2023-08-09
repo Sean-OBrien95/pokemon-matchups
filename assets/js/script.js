@@ -13,7 +13,6 @@ let timerDuration = getTimerDuration(difficulty);
 let timerInterval;
 let overallScore = 0;
 let overallWrongAnswers = 0;
-playButton.disabled = true;
 
 const pokeTypes = [
     {
@@ -65,6 +64,8 @@ document.addEventListener("DOMContentLoaded", function () {
     const defenseControlButton = document.getElementById("def-control");
 
     const playButton = document.querySelector(".play");
+    playButton.disabled = true;
+    updatePlayButton();
 
     const easyButton = document.getElementById("e-dif");
     const mediumButton = document.getElementById("m-dif");
@@ -76,6 +77,7 @@ document.addEventListener("DOMContentLoaded", function () {
         easyButton.classList.add("active");
         mediumButton.classList.remove("active");
         hardButton.classList.remove("active");
+        updatePlayButton();
     });
 
     mediumButton.addEventListener("click", function () {
@@ -84,6 +86,7 @@ document.addEventListener("DOMContentLoaded", function () {
         easyButton.classList.remove("active");
         mediumButton.classList.add("active");
         hardButton.classList.remove("active");
+        updatePlayButton();
     });
 
     hardButton.addEventListener("click", function () {
@@ -92,18 +95,21 @@ document.addEventListener("DOMContentLoaded", function () {
         easyButton.classList.remove("active");
         mediumButton.classList.remove("active");
         hardButton.classList.add("active");
+        updatePlayButton();
     });
 
     attackControlButton.addEventListener("click", function () {
         selectedGameType = "attack";
         attackControlButton.classList.add("active");
         defenseControlButton.classList.remove("active");
+        updatePlayButton();
     });
 
     defenseControlButton.addEventListener("click", function () {
         selectedGameType = "defense";
         defenseControlButton.classList.add("active");
         attackControlButton.classList.remove("active");
+        updatePlayButton();
     });
 
     playButton.addEventListener("click", function () {
@@ -122,6 +128,8 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 function updatePlayButton() {
+    const playButton = document.getElementById("playButton");
+
     if (selectedGameType && difficulty) {
         playButton.disabled = false;
     } else {
