@@ -152,6 +152,10 @@ function runGame() {
 
 function playNextRound() {
     if (currentRound <= numRounds) {
+
+        document.getElementById("attack-game").classList.add("hidden");
+        document.getElementById("def-game").classList.add("hidden");
+
         if (selectedGameType === "attack") {
             document.getElementById("attack-game").classList.remove("hidden");
             document.getElementById("def-game").classList.add("hidden");
@@ -179,11 +183,18 @@ function playNextRound() {
     wrongAnswersThisRound = 0;
     answersGivenThisRound = 0;
 
+    clearInterval(timerInterval);
+
+    resetButtons();
+    updatePlayButton();
+
     selectedGameType = null;
     document.getElementById("home").classList.remove("hidden");
     document.getElementById("result").textContent = "";
     document.getElementById("score").innerText = overallScore;
     document.getElementById("wrong").innerText = overallWrongAnswers;
+
+    return;
 }
 
 function getTimerDuration(difficulty) {
@@ -254,8 +265,16 @@ function checkDefenseAnswer(selectedType, targetedType) {
 
 function stopRound() {
     clearInterval(timerInterval);
+    answersGivenThisRound = 0;
+    selectedGameType = null;
+    resetButtons();
     currentRound++;
     playNextRound();
+}
+
+function resetButtons() {
+    const buttons = document.querySelectorAll(".control");
+    buttons.forEach(button => button.classList.remove("active"));
 }
 
 function incrementScore() {
