@@ -13,6 +13,9 @@ let timerDuration = getTimerDuration(difficulty);
 let timerInterval;
 let overallScore = 0;
 let overallWrongAnswers = 0;
+let correctAnswersThisRound = 0;
+let wrongAnswersThisRound = 0;
+let answersGivenThisRound = 0;
 
 const pokeTypes = [
     {
@@ -168,6 +171,14 @@ function playNextRound() {
     // currentRound = 1;
     // overallScore = 0;
     // overallWrongAnswers = 0;
+
+    overallScore += (correctAnswersThisRound >= 2) ? 1 : 0;
+    overallWrongAnswers += (wrongAnswersThisRound <= 1) ? 1 : 0;
+
+    correctAnswersThisRound = 0;
+    wrongAnswersThisRound = 0;
+    answersGivenThisRound = 0;
+
     selectedGameType = null;
     document.getElementById("home").classList.remove("hidden");
     document.getElementById("result").textContent = "";
@@ -202,12 +213,20 @@ function checkAttackAnswer(selectedType, targetedType) {
     if (selectedType === targetedType) {
         resultElement.textContent = `You chose ${selectedType}. It's not very effective`;
         incrementWrongAnswer();
+        wrongAnswersThisRound++;
     } else if (isStrongAgainst(selectedType, targetedType)) {
         resultElement.textContent = `You chose ${selectedType}. It's super effective!`;
         incrementScore();
+        correctAnswersThisRound++;
     } else {
         resultElement.textContent = `You chose ${selectedType}. It's not very effective`;
         incrementWrongAnswer();
+        wrongAnswersThisRound++;
+    }
+
+    answersGivenThisRound++;
+    if (answersGivenThisRound >= 3) {
+        stopRound();
     }
 }
 
@@ -216,13 +235,27 @@ function checkDefenseAnswer(selectedType, targetedType) {
     if (selectedType === targetedType) {
         resultElement.textContent = `You chose ${selectedType}. It's not very effective.`;
         incrementWrongAnswer();
+        wrongAnswersThisRound++;
     } else if (isWeaknessOf(targetedType, selectedType)) {
         resultElement.textContent = `You chose ${selectedType}. It's super effective!`;
         incrementScore();
+        correctAnswersThisRound++;
     } else {
         resultElement.textContent = `You chose ${selectedType}. It's not very effective.`;
         incrementWrongAnswer();
+        wrongAnswersThisRound++;
     }
+
+    answersGivenThisRound++; 
+    if (answersGivenThisRound >= 3) {
+        stopRound();
+    }
+}
+
+function stopRound() {
+    clearInterval(timerInterval);
+    currentRound++;
+    playNextRound();
 }
 
 function incrementScore() {
