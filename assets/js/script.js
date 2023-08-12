@@ -6,10 +6,7 @@ let score = 0;
 let wrongAnswers = 0;
 let selectedGameType = null;
 let defenseTargetType = null;
-let numRounds = 3;
-let currentRound = 1;
 let difficulty = "easy";
-// let timerDuration = getTimerDuration(difficulty);
 let timerInterval;
 let overallScore = 0;
 let overallWrongAnswers = 0;
@@ -96,7 +93,7 @@ document.addEventListener("DOMContentLoaded", function () {
         if (selectedGameType && difficulty) {
             document.getElementById("home").classList.add("hidden");
             if (selectedGameType === "attack" || selectedGameType === "defense") {
-                runGame(usernameInput);
+                runGame(usernameInput, availableTypes);
             } else {
                 alert("Please select the game type (attack or defense) before starting.");
             }
@@ -111,7 +108,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     easyButton.addEventListener("click", function () {
         difficulty = "easy";
-        timerDuration = getTimerDuration(difficulty);
+        availableTypes = getTypes(difficulty);
         easyButton.classList.add("active");
         mediumButton.classList.remove("active");
         hardButton.classList.remove("active");
@@ -120,7 +117,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     mediumButton.addEventListener("click", function () {
         difficulty = "medium";
-        timerDuration = getTimerDuration(difficulty);
+        availableTypes = getTypes(difficulty);
         easyButton.classList.remove("active");
         mediumButton.classList.add("active");
         hardButton.classList.remove("active");
@@ -129,7 +126,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     hardButton.addEventListener("click", function () {
         difficulty = "hard";
-        timerDuration = getTimerDuration(difficulty);
+        availableTypes = getTypes(difficulty);
         easyButton.classList.remove("active");
         mediumButton.classList.remove("active");
         hardButton.classList.add("active");
@@ -154,7 +151,7 @@ document.addEventListener("DOMContentLoaded", function () {
         if (selectedGameType && difficulty) {
             document.getElementById("home").classList.add("hidden");
             if (selectedGameType === "attack" || selectedGameType === "defense") {
-                runGame(usernameInput);
+                runGame(usernameInput, availableTypes);
             } else {
                 alert("Please select the game type (attack or defense) before starting.");
             }
@@ -175,23 +172,16 @@ function updatePlayButton() {
     }
 }
 
-// function runGame(usernameInput) {
-//     console.log("Running game with username:", usernameInput);
-//     if (selectedGameType && difficulty) {
-//         playRound(usernameInput);
-//     }
-// }
+function runGame(usernameInput, availableTypes) {
 
-function runGame(usernameInput) {
-    console.log("Running game with username:", usernameInput);
     if (selectedGameType === "attack" || selectedGameType === "defense") {
-        playRound(usernameInput);
+        playRound(usernameInput, availableTypes);
     } else {
         alert("Please select the game type (attack or defense) before starting.");
     }
 }
 
-function playRound(usernameInput) {
+function playRound(usernameInput, availableTypes) {
     document.getElementById("attack-game").classList.add("hidden");
     document.getElementById("def-game").classList.add("hidden");
 
@@ -201,7 +191,7 @@ function playRound(usernameInput) {
         document.getElementById("def-game").classList.remove("hidden");
     }
 
-    displayGeneralQuestion(selectedGameType, usernameInput);
+    displayGeneralQuestion(selectedGameType, usernameInput, availableTypes);
 }
 
 function getTypes(difficulty) {
@@ -322,7 +312,7 @@ function isWeaknessOf(selectedType, targetedType) {
     return type.weakness.includes(selectedType);
 }
 
-function displayGeneralQuestion(selectedType, usernameInput) {
+function displayGeneralQuestion(selectedType, usernameInput, availableTypes) {
 
     const resultElement = document.getElementById("result");
     resultElement.textContent = "";
@@ -345,7 +335,7 @@ function displayGeneralQuestion(selectedType, usernameInput) {
         randomTypeImage.alt = targetType.alt;
     }
 
-    let buttonsContainer = "";
+    let buttonsContainer = null;
 
     if (selectedType == "attack") {
         buttonsContainer = document.getElementById("attack-buttons");
@@ -355,7 +345,7 @@ function displayGeneralQuestion(selectedType, usernameInput) {
 
     buttonsContainer.innerHTML = "";
 
-    for (const type of pokeTypes) {
+    for (const type of availableTypes) {
         const button = document.createElement("button");
         const typeImage = document.createElement("img");
         typeImage.src = type.imageSrc;
