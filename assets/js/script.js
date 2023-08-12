@@ -10,6 +10,7 @@ let difficulty = "easy";
 let timerInterval;
 let overallScore = 0;
 let overallWrongAnswers = 0;
+let usernameInput = "";
 // let correctAnswersThisRound = 0;
 // let wrongAnswersThisRound = 0;
 // let answersGivenThisRound = 0;
@@ -18,20 +19,20 @@ const pokeTypes = [
     {
         type: "fire",
         strength: ["grass"],
-        weakness: ["water", "ground"],
+        weakness: ["water", "ground", "rock"],
         imageSrc: "assets/images/fire-type.png",
         alt: "Fire type image"
     },
     {
         type: "water",
-        strength: ["fire", "ground"],
+        strength: ["fire", "ground", "rock"],
         weakness: ["grass", "electric"],
         imageSrc: "assets/images/water-type.png",
         alt: "Water type image"
     },
     {
         type: "grass",
-        strength: ["water", "ground"],
+        strength: ["water", "ground", "rock"],
         weakness: ["fire", "flying"],
         imageSrc: "assets/images/grass-type.png",
         alt: "Grass type image"
@@ -52,8 +53,8 @@ const pokeTypes = [
     },
     {
         type: "flying",
-        strength: ["grass"],
-        weakness: ["electric"],
+        strength: ["grass", "fighting"],
+        weakness: ["electric", "rock"],
         imageSrc: "assets/images/flying-type.png",
         alt: "Flying type image"
     },
@@ -100,6 +101,12 @@ document.addEventListener("DOMContentLoaded", function () {
         } else {
             alert("Please select both the game type and difficulty before starting.");
         }
+    });
+
+    const usernameInputField = document.getElementById("username");
+    usernameInputField.addEventListener("input", function () {
+        usernameInput = this.value.trim();
+        updatePlayButton();
     });
 
     const easyButton = document.getElementById("e-dif");
@@ -164,8 +171,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
 function updatePlayButton() {
     const playButton = document.getElementById("playButton");
+    const usernameInput = document.getElementById("username").value;
 
-    if (selectedGameType && difficulty) {
+    if (selectedGameType && difficulty && usernameInput.trim() !== "") {
         playButton.disabled = false;
     } else {
         playButton.disabled = true;
