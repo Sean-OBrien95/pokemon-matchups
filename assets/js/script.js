@@ -7,8 +7,6 @@ let wrongAnswers = 0;
 let selectedGameType = null;
 let defenseTargetType = null;
 let difficulty = "easy";
-let overallScore = 0;
-let overallWrongAnswers = 0;
 let usernameInput = "";
 
 const pokeTypes = [
@@ -115,6 +113,9 @@ document.addEventListener("DOMContentLoaded", function () {
         easyButton.classList.add("active");
         mediumButton.classList.remove("active");
         hardButton.classList.remove("active");
+        easyButton.classList.add("selected-difficulty");
+        mediumButton.classList.remove("selected-difficulty");
+        hardButton.classList.remove("selected-difficulty");
         updatePlayButton();
     });
 
@@ -124,6 +125,9 @@ document.addEventListener("DOMContentLoaded", function () {
         easyButton.classList.remove("active");
         mediumButton.classList.add("active");
         hardButton.classList.remove("active");
+        easyButton.classList.remove("selected-difficulty");
+        mediumButton.classList.add("selected-difficulty");
+        hardButton.classList.remove("selected-difficulty");
         updatePlayButton();
     });
 
@@ -133,20 +137,30 @@ document.addEventListener("DOMContentLoaded", function () {
         easyButton.classList.remove("active");
         mediumButton.classList.remove("active");
         hardButton.classList.add("active");
+        easyButton.classList.remove("selected-difficulty");
+        mediumButton.classList.remove("selected-difficulty");
+        hardButton.classList.add("selected-difficulty");
         updatePlayButton();
     });
 
     attackControlButton.addEventListener("click", function () {
         selectedGameType = "attack";
         attackControlButton.classList.add("active");
+        attackControlButton.classList.add("selected-attack");
         defenseControlButton.classList.remove("active");
+        defenseControlButton.classList.remove("selected-defense");
+
         updatePlayButton();
     });
 
     defenseControlButton.addEventListener("click", function () {
         selectedGameType = "defense";
         defenseControlButton.classList.add("active");
+        defenseControlButton.classList.add("selected-defense");
         attackControlButton.classList.remove("active");
+        attackControlButton.classList.remove("selected-attack");
+
+
         updatePlayButton();
     });
 
@@ -167,8 +181,6 @@ function runGame(usernameInput, availableTypes) {
 
     if (selectedGameType === "attack" || selectedGameType === "defense") {
         playRound(usernameInput, availableTypes);
-    } else {
-        alert("Please select the game type (attack or defense) before starting.");
     }
 }
 

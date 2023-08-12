@@ -138,19 +138,19 @@ body {
 
 #e-dif:active,
 #e-dif:hover {
-    background-color: lightblue;
+    background-color: black;
     color: white;
 }
 
 #m-dif:active,
 #m-dif:hover {
-    background-color: yellow;
+    background-color: black;
     color: white;
 }
 
 #h-dif:active,
 #h-dif:hover {
-    background-color: pink;
+    background-color: black;
     color: white;
 }
 
@@ -164,8 +164,17 @@ body {
     display: none;
 }
 
-.active,
-.active:hover,
-.active:active {
+.selected-attack {
+    background-color: red;
+    color: white;
+}
+
+.selected-defense {
+    background-color: blue;
+    color: white;
+}
+
+.selected-difficulty {
+    background-color: black;
     color: white;
 }
