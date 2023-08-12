@@ -70,8 +70,10 @@ document.addEventListener("DOMContentLoaded", function () {
     playButton.disabled = true;
     updatePlayButton();
 
-     playButton.addEventListener("click", function () {
-        const username = document.getElementById("username").value.trim();
+    payButton.addEventListener("click", function () {
+        const usernameInput = document.getElementById("username").value;
+        
+        console.log("Username:", usernameInputInput);
         if (username === "") {
             alert("Please enter your name before starting.");
             return;
@@ -80,7 +82,7 @@ document.addEventListener("DOMContentLoaded", function () {
         if (selectedGameType && difficulty) {
             document.getElementById("home").classList.add("hidden");
             if (selectedGameType === "attack" || selectedGameType === "defense") {
-                runGame(username);
+                runGame(usernameInput);
             } else {
                 alert("Please select the game type (attack or defense) before starting.");
             }
@@ -138,7 +140,7 @@ document.addEventListener("DOMContentLoaded", function () {
         if (selectedGameType && difficulty) {
             document.getElementById("home").classList.add("hidden");
             if (selectedGameType === "attack" || selectedGameType === "defense") {
-                runGame();
+                runGame(username);
             } else {
                 alert("Please select the game type (attack or defense) before starting.");
             }
@@ -159,65 +161,14 @@ function updatePlayButton() {
     }
 }
 
-function runGame() {
+function runGame(username) {
+    console.log("Running game with username:", usernameInput);
     if (selectedGameType && difficulty) {
-        // currentRound = 1;
-        // overallScore = 0;
-        // // overallWrongAnswers = 0;
-        // startTimer();
-        playRound();
+        playRound(username);
     }
 }
 
-// function playNextRound() {
-//     if (currentRound <= numRounds) {
-
-//         document.getElementById("attack-game").classList.add("hidden");
-//         document.getElementById("def-game").classList.add("hidden");
-
-//         if (selectedGameType === "attack") {
-//             document.getElementById("attack-game").classList.remove("hidden");
-//             document.getElementById("def-game").classList.add("hidden");
-//             displayGeneralQuestion(selectedGameType);
-//         } else if (selectedGameType === "defense") {
-//             document.getElementById("def-game").classList.remove("hidden");
-//             document.getElementById("attack-game").classList.add("hidden");
-//             displayGeneralQuestion(selectedGameType);
-//         } 
-//     } 
-
-//     // console.log("overallScore:", overallScore);
-//     // console.log("overallWrongAnswers:", overallWrongAnswers);
-
-//     // if (overallScore >= 2) {
-//     //         alert("Congratulations! You won the best of 3 series.");
-//     //     } else {
-//     //         alert("You lost the best of 3 series. Try again!");
-//     //     }
-
-//     // overallScore += (correctAnswersThisRound >= 2) ? 1 : 0;
-//     // overallWrongAnswers += (wrongAnswersThisRound <= 1) ? 1 : 0;
-
-//     // correctAnswersThisRound = 0;
-//     // wrongAnswersThisRound = 0;
-//     // answersGivenThisRound = 0;
-
-//     // clearInterval(timerInterval);
-
-//     resetButtons();
-//     updatePlayButton();
-
-//     selectedGameType = null;
-//     document.getElementById("home").classList.remove("hidden");
-//     document.getElementById("result").textContent = "";
-//     document.getElementById("score").innerText = overallScore;
-//     document.getElementById("wrong").innerText = overallWrongAnswers;
-
-//     return;
-
-// }
-
-function playRound() {
+function playRound(usernameInput) {
     document.getElementById("attack-game").classList.add("hidden");
     document.getElementById("def-game").classList.add("hidden");
 
@@ -227,7 +178,7 @@ function playRound() {
         document.getElementById("def-game").classList.remove("hidden");
     }
 
-    displayGeneralQuestion(selectedGameType);
+    displayGeneralQuestion(selectedGameType, usernameInput);
 }
 
 function getTimerDuration(difficulty) {
@@ -253,18 +204,18 @@ function getTimerDuration(difficulty) {
 //     }, 1000);
 // }
 
-function checkAttackAnswer(selectedType, targetedType) {
+function checkAttackAnswer(selectedType, targetedType, usernameInput) {
     const resultElement = document.getElementById("result");
     if (selectedType === targetedType) {
-        alert(`You chose ${selectedType}. It's not very effective`);
+        alert(`Sorry ${usernameInput}, you chose ${selectedType}. It's not very effective`);
         incrementWrongAnswer();
         // wrongAnswersThisRound++;
     } else if (isStrongAgainst(selectedType, targetedType)) {
-        alert(`You chose ${selectedType}. It's super effective!`);
+        alert(`Well done ${usernameInput}!You chose ${selectedType}. It's super effective!`);
         incrementScore();
         // correctAnswersThisRound++;
     } else {
-        alert(`You chose ${selectedType}. It's not very effective`);
+        alert(`Sorry ${usernameInput}, you chose ${selectedType}. It's not very effective`);
         incrementWrongAnswer();
         // wrongAnswersThisRound++;
     }
@@ -277,18 +228,17 @@ function checkAttackAnswer(selectedType, targetedType) {
     // }
 }
 
-function checkDefenseAnswer(selectedType, targetedType) {
+function checkDefenseAnswer(selectedType, targetedType, usernameInput) {
     const resultElement = document.getElementById("result");
     if (selectedType === targetedType) {
-        alert(`You chose ${selectedType}. It's not very effective.`);
+        alert(`Sorry, ${usernameInput}, you chose ${selectedType}. It's not very effective.`);
         incrementWrongAnswer();
 
     } else if (isWeaknessOf(targetedType, selectedType)) {
-        alert(`You chose ${selectedType}. It's super effective!`);
+        alert(`Well done ${usernameInput}! You chose ${selectedType}. It's super effective!`);
         incrementScore();
-        
     } else {
-        alert(`You chose ${selectedType}. It's not very effective.`);
+        alert(`Sorry, ${usernameInput}, you chose ${selectedType}. It's not very effective.`);
         incrementWrongAnswer();
         // wrongAnswersThisRound++;
     }
@@ -349,7 +299,7 @@ function isWeaknessOf(selectedType, targetedType) {
     return type.weakness.includes(selectedType);
 }
 
-function displayGeneralQuestion(selectedType) {
+function displayGeneralQuestion(selectedType, username) {
 
     const resultElement = document.getElementById("result");
     resultElement.textContent = "";
@@ -391,9 +341,9 @@ function displayGeneralQuestion(selectedType) {
         button.appendChild(typeImage);
         button.addEventListener("click", function () {
             if (selectedType == "attack") {
-                checkAttackAnswer(type.type, targetType.type);
+                checkAttackAnswer(type.type, targetType.type, usernameInput);
             } else if (selectedType == "defense") {
-                checkDefenseAnswer(type.type, targetType.type);
+                checkDefenseAnswer(type.type, targetType.type, usernameInput);
             }
         });
         buttonsContainer.appendChild(button);
