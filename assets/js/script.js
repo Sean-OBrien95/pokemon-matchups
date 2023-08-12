@@ -237,10 +237,10 @@ function checkAttackAnswer(selectedType, targetedType) {
         wrongAnswersThisRound++;
     }
 
-    answersGivenThisRound++;
-    if (answersGivenThisRound >= 3) {
-        stopRound();
-    }
+    // answersGivenThisRound++;
+    // if (answersGivenThisRound >= 3) {
+    //     stopRound();
+    // }
 }
 
 function checkDefenseAnswer(selectedType, targetedType) {
@@ -260,18 +260,29 @@ function checkDefenseAnswer(selectedType, targetedType) {
     }
 
     answersGivenThisRound++; 
-    if (answersGivenThisRound >= 3) {
-        stopRound();
-    }
+    // if (answersGivenThisRound >= 3) {
+    //     stopRound();
+    // }
 }
 
-function stopRound() {
-    clearInterval(timerInterval);
-    answersGivenThisRound = 0;
-    selectedGameType = null;
+// function stopRound() {
+//     clearInterval(timerInterval);
+//     answersGivenThisRound = 0;
+//     selectedGameType = null;
+//     resetButtons();
+//     currentRound++;
+//     playNextRound();
+// }
+
+function stopGame() {
     resetButtons();
-    currentRound++;
-    playNextRound();
+    updatePlayButton();
+
+    selectedGameType = null;
+    document.getElementById("home").classList.remove("hidden");
+    document.getElementById("attack-game").classList.add("hidden");
+    document.getElementById("def-game").classList.add("hidden");
+    document.getElementById("result").textContent = "";
 }
 
 function resetButtons() {
