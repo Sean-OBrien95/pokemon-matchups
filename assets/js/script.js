@@ -291,7 +291,19 @@ function displayGeneralQuestion(selectedType, usernameInput, availableTypes) {
     resultElement.textContent = "";
 
     const targetImages = document.getElementsByClassName("target-image");
-    const targetType = pokeTypes[Math.floor(Math.random() * pokeTypes.length)];
+
+    let maxIndex = 0;
+
+    if (difficulty === "easy") {
+        maxIndex = 3;
+    } else if (difficulty === "medium") {
+        maxIndex = 5;
+    } else if (difficulty === "hard") {
+        maxIndex = 7;
+    }
+
+    const randomIndex = Math.floor(Math.random() * maxIndex);
+    const targetType = pokeTypes[randomIndex];
 
     for (const targetImageElement of targetImages) {
         targetImageElement.setAttribute("src", targetType.imageSrc);
