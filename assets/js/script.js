@@ -7,13 +7,9 @@ let wrongAnswers = 0;
 let selectedGameType = null;
 let defenseTargetType = null;
 let difficulty = "easy";
-let timerInterval;
 let overallScore = 0;
 let overallWrongAnswers = 0;
 let usernameInput = "";
-// let correctAnswersThisRound = 0;
-// let wrongAnswersThisRound = 0;
-// let answersGivenThisRound = 0;
 
 const pokeTypes = [
     {
@@ -154,19 +150,6 @@ document.addEventListener("DOMContentLoaded", function () {
         updatePlayButton();
     });
 
-    playButton.addEventListener("click", function () {
-        if (selectedGameType && difficulty) {
-            document.getElementById("home").classList.add("hidden");
-            if (selectedGameType === "attack" || selectedGameType === "defense") {
-                runGame(usernameInput, availableTypes);
-            } else {
-                alert("Please select the game type (attack or defense) before starting.");
-            }
-        } else {
-            alert("Please select both the game type and difficulty before starting.");
-        }
-    });
-
 });
 
 function updatePlayButton() {
@@ -211,46 +194,28 @@ function getTypes(difficulty) {
     }
 }
 
-// function startTimer() {
-//     let timeRemaining = timerDuration;
-//     const timerElement = document.getElementById("timer");
-//     timerInterval = setInterval(function () {
-//         document.getElementById("timer").innerText = timeRemaining;
-//         timeRemaining--;
-//         if (timeRemaining < 0) {
-//             clearInterval(timerInterval);
-//             currentRound++;
-//             playNextRound();
-//         }
-//     }, 1000);
-// }
-
 function checkAttackAnswer(selectedType, targetedType, usernameInput) {
-    const resultElement = document.getElementById("result");
+
     if (selectedType === targetedType) {
         alert(`Sorry ${usernameInput}, you chose ${selectedType}. It's not very effective.`);
         incrementWrongAnswer();
-        // wrongAnswersThisRound++;
+
     } else if (isStrongAgainst(selectedType, targetedType)) {
         alert(`Well done ${usernameInput}! You chose ${selectedType}. It's super effective!`);
         incrementScore();
-        // correctAnswersThisRound++;
+
     } else {
         alert(`Sorry ${usernameInput}, you chose ${selectedType}. It's not very effective.`);
         incrementWrongAnswer();
-        // wrongAnswersThisRound++;
+
     }
 
     stopGame();
 
-    // answersGivenThisRound++;
-    // if (answersGivenThisRound >= 3) {
-    //     stopRound();
-    // }
 }
 
 function checkDefenseAnswer(selectedType, targetedType, usernameInput) {
-    const resultElement = document.getElementById("result");
+
     if (selectedType === targetedType) {
         alert(`Sorry, ${usernameInput}, you chose ${selectedType}.`);
         incrementWrongAnswer();
@@ -261,25 +226,12 @@ function checkDefenseAnswer(selectedType, targetedType, usernameInput) {
     } else {
         alert(`Sorry, ${usernameInput}, you chose ${selectedType}. It's not very effective.`);
         incrementWrongAnswer();
-        // wrongAnswersThisRound++;
+
     }
 
     stopGame();
 
-    // answersGivenThisRound++; 
-    // if (answersGivenThisRound >= 3) {
-    //     stopRound();
-    // }
 }
-
-// function stopRound() {
-//     clearInterval(timerInterval);
-//     answersGivenThisRound = 0;
-//     selectedGameType = null;
-//     resetButtons();
-//     currentRound++;
-//     playNextRound();
-// }
 
 function stopGame() {
     resetButtons();
@@ -293,6 +245,7 @@ function stopGame() {
 }
 
 function resetButtons() {
+
     const buttons = document.querySelectorAll(".control");
     buttons.forEach(button => button.classList.remove("active"));
 }
