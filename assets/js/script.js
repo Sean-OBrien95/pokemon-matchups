@@ -40,13 +40,6 @@ const pokeTypes = [
         alt: "Grass type image"
     },
     {
-        type: "electric",
-        strength: ["water", "flying"],
-        weakness: ["ground"],
-        imageSrc: "assets/images/electric-type.png",
-        alt: "Electric type image"
-    },
-    {
         type: "ground",
         strength: ["fire", "electric"],
         weakness: ["grass", "water"],
@@ -54,11 +47,32 @@ const pokeTypes = [
         alt: "Ground type image"
     },
     {
+        type: "electric",
+        strength: ["water", "flying"],
+        weakness: ["ground"],
+        imageSrc: "assets/images/electric-type.png",
+        alt: "Electric type image"
+    },
+    {
         type: "flying",
         strength: ["grass"],
         weakness: ["electric"],
         imageSrc: "assets/images/flying-type.png",
         alt: "Flying type image"
+    },
+    {
+        type: "rock",
+        strength: ["flying"],
+        weakness: ["grass", "water", "fighting"],
+        imageSrc: "assets/images/rock-type.png",
+        alt: "Rock type image"
+    },
+    {
+        type: "fighting",
+        strength: ["rock"],
+        weakness: ["flying"],
+        imageSrc: "assets/images/fighting-type.png",
+        alt: "Fighting type image"
     }
 ];
 
@@ -216,7 +230,7 @@ function getTimerDuration(difficulty) {
 function checkAttackAnswer(selectedType, targetedType, usernameInput) {
     const resultElement = document.getElementById("result");
     if (selectedType === targetedType) {
-        alert(`Sorry ${usernameInput}, you chose ${selectedType}. It's not very effective`);
+        alert(`Sorry ${usernameInput}, you chose ${selectedType}. It's not very effective.`);
         incrementWrongAnswer();
         // wrongAnswersThisRound++;
     } else if (isStrongAgainst(selectedType, targetedType)) {
@@ -224,7 +238,7 @@ function checkAttackAnswer(selectedType, targetedType, usernameInput) {
         incrementScore();
         // correctAnswersThisRound++;
     } else {
-        alert(`Sorry ${usernameInput}, you chose ${selectedType}. It's not very effective`);
+        alert(`Sorry ${usernameInput}, you chose ${selectedType}. It's not very effective.`);
         incrementWrongAnswer();
         // wrongAnswersThisRound++;
     }
@@ -240,7 +254,7 @@ function checkAttackAnswer(selectedType, targetedType, usernameInput) {
 function checkDefenseAnswer(selectedType, targetedType, usernameInput) {
     const resultElement = document.getElementById("result");
     if (selectedType === targetedType) {
-        alert(`Sorry, ${usernameInput}, you chose ${selectedType}. It's not very effective.`);
+        alert(`Sorry, ${usernameInput}, you chose ${selectedType}.`);
         incrementWrongAnswer();
 
     } else if (isWeaknessOf(targetedType, selectedType)) {
