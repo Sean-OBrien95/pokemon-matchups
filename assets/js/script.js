@@ -237,15 +237,15 @@ function startTimer() {
 function checkAttackAnswer(selectedType, targetedType) {
     const resultElement = document.getElementById("result");
     if (selectedType === targetedType) {
-        resultElement.textContent = `You chose ${selectedType}. It's not very effective`;
+        alert(`You chose ${selectedType}. It's not very effective`);
         incrementWrongAnswer();
         // wrongAnswersThisRound++;
     } else if (isStrongAgainst(selectedType, targetedType)) {
-        resultElement.textContent = `You chose ${selectedType}. It's super effective!`;
+        alert(`You chose ${selectedType}. It's super effective!`);
         incrementScore();
         // correctAnswersThisRound++;
     } else {
-        resultElement.textContent = `You chose ${selectedType}. It's not very effective`;
+        alert(`You chose ${selectedType}. It's not very effective`);
         incrementWrongAnswer();
         // wrongAnswersThisRound++;
     }
@@ -261,15 +261,15 @@ function checkAttackAnswer(selectedType, targetedType) {
 function checkDefenseAnswer(selectedType, targetedType) {
     const resultElement = document.getElementById("result");
     if (selectedType === targetedType) {
-        resultElement.textContent = `You chose ${selectedType}. It's not very effective.`;
+        alert(`You chose ${selectedType}. It's not very effective.`);
         incrementWrongAnswer();
 
     } else if (isWeaknessOf(targetedType, selectedType)) {
-        resultElement.textContent = `You chose ${selectedType}. It's super effective!`;
+        alert(`You chose ${selectedType}. It's super effective!`);
         incrementScore();
         
     } else {
-        resultElement.textContent = `You chose ${selectedType}. It's not very effective.`;
+        alert(`You chose ${selectedType}. It's not very effective.`);
         incrementWrongAnswer();
         // wrongAnswersThisRound++;
     }
