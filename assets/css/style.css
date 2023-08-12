@@ -139,35 +139,19 @@ body {
     color: white;
 }
 
-/* #e-dif:active,
-#e-dif:hover {
-    background-color: black;
-    color: white;
-} */
-
 .medium-btn:active,
 .medium-btn:hover {
     background-color: black;
     color: white;
 }
 
-/* #m-dif:active,
-#m-dif:hover {
-    background-color: black;
-    color: white;
-} */
-
-/* #h-dif:active,
-#h-dif:hover {
-    background-color: black;
-    color: white;
-} */
-
 .play {
     height: 40px;
     width: 200px;
     margin: 20px;
 }
+
+/**/
 
 .hidden {
     display: none;
@@ -186,4 +170,55 @@ body {
 .selected-difficulty {
     background-color: black;
     color: white;
+}
+
+
+.button-pair {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.target-image {
+    width: 100px;
+    height: 100px;
+}
+
+.button-div {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+#attack-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: center;
+    position: relative;
+    right: 15%;
+}
+
+#random-type-a {
+    position: absolute;
+    right: 20%;
+    top: 50%;
+    transform: translateY(-50%)
+}
+
+#defense-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: center;
+    position: relative;
+    left: 25%;
+}
+
+#random-type-b {
+    position: absolute;
+    left: 20%;
+    top: 50%;
+    transform: translateY(-50%)
 }
