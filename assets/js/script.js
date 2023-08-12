@@ -70,6 +70,25 @@ document.addEventListener("DOMContentLoaded", function () {
     playButton.disabled = true;
     updatePlayButton();
 
+     playButton.addEventListener("click", function () {
+        const username = document.getElementById("username").value.trim();
+        if (username === "") {
+            alert("Please enter your name before starting.");
+            return;
+        }
+
+        if (selectedGameType && difficulty) {
+            document.getElementById("home").classList.add("hidden");
+            if (selectedGameType === "attack" || selectedGameType === "defense") {
+                runGame(username);
+            } else {
+                alert("Please select the game type (attack or defense) before starting.");
+            }
+        } else {
+            alert("Please select both the game type and difficulty before starting.");
+        }
+    });
+
     const easyButton = document.getElementById("e-dif");
     const mediumButton = document.getElementById("m-dif");
     const hardButton = document.getElementById("h-dif");
@@ -220,19 +239,19 @@ function getTimerDuration(difficulty) {
     }
 }
 
-function startTimer() {
-    let timeRemaining = timerDuration;
-    const timerElement = document.getElementById("timer");
-    timerInterval = setInterval(function () {
-        document.getElementById("timer").innerText = timeRemaining;
-        timeRemaining--;
-        if (timeRemaining < 0) {
-            clearInterval(timerInterval);
-            currentRound++;
-            playNextRound();
-        }
-    }, 1000);
-}
+// function startTimer() {
+//     let timeRemaining = timerDuration;
+//     const timerElement = document.getElementById("timer");
+//     timerInterval = setInterval(function () {
+//         document.getElementById("timer").innerText = timeRemaining;
+//         timeRemaining--;
+//         if (timeRemaining < 0) {
+//             clearInterval(timerInterval);
+//             currentRound++;
+//             playNextRound();
+//         }
+//     }, 1000);
+// }
 
 function checkAttackAnswer(selectedType, targetedType) {
     const resultElement = document.getElementById("result");
