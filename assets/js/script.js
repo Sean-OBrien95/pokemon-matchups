@@ -204,12 +204,12 @@ function playRound(usernameInput) {
     displayGeneralQuestion(selectedGameType, usernameInput);
 }
 
-function getTimerDuration(difficulty) {
+function getTypes(difficulty) {
     switch (difficulty) {
-        case "easy": return 30;
-        case "medium": return 20;
-        case "hard": return 10;
-        default: return 30;
+        case "easy": return pokeTypes.slice(0, 4);
+        case "medium": return pokeTypes.slice(0, 6);
+        case "hard": return pokeTypes.slice(0, 8);
+        default: return pokeTypes.slice(0, 4);
     }
 }
 
