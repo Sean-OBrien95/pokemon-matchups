@@ -9,7 +9,7 @@ let defenseTargetType = null;
 let numRounds = 3;
 let currentRound = 1;
 let difficulty = "easy";
-let timerDuration = getTimerDuration(difficulty);
+// let timerDuration = getTimerDuration(difficulty);
 let timerInterval;
 let overallScore = 0;
 let overallWrongAnswers = 0;
@@ -144,58 +144,71 @@ function runGame() {
     if (selectedGameType && difficulty) {
         // currentRound = 1;
         // overallScore = 0;
-        // overallWrongAnswers = 0;
-        startTimer();
-        playNextRound();
+        // // overallWrongAnswers = 0;
+        // startTimer();
+        playRound();
     }
 }
 
-function playNextRound() {
-    if (currentRound <= numRounds) {
+// function playNextRound() {
+//     if (currentRound <= numRounds) {
 
-        document.getElementById("attack-game").classList.add("hidden");
-        document.getElementById("def-game").classList.add("hidden");
+//         document.getElementById("attack-game").classList.add("hidden");
+//         document.getElementById("def-game").classList.add("hidden");
 
-        if (selectedGameType === "attack") {
-            document.getElementById("attack-game").classList.remove("hidden");
-            document.getElementById("def-game").classList.add("hidden");
-            displayGeneralQuestion(selectedGameType);
-        } else if (selectedGameType === "defense") {
-            document.getElementById("def-game").classList.remove("hidden");
-            document.getElementById("attack-game").classList.add("hidden");
-            displayGeneralQuestion(selectedGameType);
-        } 
-    } 
+//         if (selectedGameType === "attack") {
+//             document.getElementById("attack-game").classList.remove("hidden");
+//             document.getElementById("def-game").classList.add("hidden");
+//             displayGeneralQuestion(selectedGameType);
+//         } else if (selectedGameType === "defense") {
+//             document.getElementById("def-game").classList.remove("hidden");
+//             document.getElementById("attack-game").classList.add("hidden");
+//             displayGeneralQuestion(selectedGameType);
+//         } 
+//     } 
 
-    // console.log("overallScore:", overallScore);
-    // console.log("overallWrongAnswers:", overallWrongAnswers);
+//     // console.log("overallScore:", overallScore);
+//     // console.log("overallWrongAnswers:", overallWrongAnswers);
 
-    // if (overallScore >= 2) {
-    //         alert("Congratulations! You won the best of 3 series.");
-    //     } else {
-    //         alert("You lost the best of 3 series. Try again!");
-    //     }
+//     // if (overallScore >= 2) {
+//     //         alert("Congratulations! You won the best of 3 series.");
+//     //     } else {
+//     //         alert("You lost the best of 3 series. Try again!");
+//     //     }
 
-    // overallScore += (correctAnswersThisRound >= 2) ? 1 : 0;
-    // overallWrongAnswers += (wrongAnswersThisRound <= 1) ? 1 : 0;
+//     // overallScore += (correctAnswersThisRound >= 2) ? 1 : 0;
+//     // overallWrongAnswers += (wrongAnswersThisRound <= 1) ? 1 : 0;
 
-    // correctAnswersThisRound = 0;
-    // wrongAnswersThisRound = 0;
-    // answersGivenThisRound = 0;
+//     // correctAnswersThisRound = 0;
+//     // wrongAnswersThisRound = 0;
+//     // answersGivenThisRound = 0;
 
-    clearInterval(timerInterval);
+//     // clearInterval(timerInterval);
 
-    resetButtons();
-    updatePlayButton();
+//     resetButtons();
+//     updatePlayButton();
 
-    selectedGameType = null;
-    document.getElementById("home").classList.remove("hidden");
-    document.getElementById("result").textContent = "";
-    document.getElementById("score").innerText = overallScore;
-    document.getElementById("wrong").innerText = overallWrongAnswers;
+//     selectedGameType = null;
+//     document.getElementById("home").classList.remove("hidden");
+//     document.getElementById("result").textContent = "";
+//     document.getElementById("score").innerText = overallScore;
+//     document.getElementById("wrong").innerText = overallWrongAnswers;
 
-    return;
+//     return;
 
+// }
+
+function playRound() {
+    document.getElementById("attack-game").classList.add("hidden");
+    document.getElementById("def-game").classList.add("hidden");
+
+    if (selectedGameType === "attack") {
+        document.getElementById("attack-game").classList.remove("hidden");
+    } else if (selectedGameType === "defense") {
+        document.getElementById("def-game").classList.remove("hidden");
+    }
+
+    displayGeneralQuestion(selectedGameType);
 }
 
 function getTimerDuration(difficulty) {
@@ -226,16 +239,18 @@ function checkAttackAnswer(selectedType, targetedType) {
     if (selectedType === targetedType) {
         resultElement.textContent = `You chose ${selectedType}. It's not very effective`;
         incrementWrongAnswer();
-        wrongAnswersThisRound++;
+        // wrongAnswersThisRound++;
     } else if (isStrongAgainst(selectedType, targetedType)) {
         resultElement.textContent = `You chose ${selectedType}. It's super effective!`;
         incrementScore();
-        correctAnswersThisRound++;
+        // correctAnswersThisRound++;
     } else {
         resultElement.textContent = `You chose ${selectedType}. It's not very effective`;
         incrementWrongAnswer();
-        wrongAnswersThisRound++;
+        // wrongAnswersThisRound++;
     }
+
+    stopGame();
 
     // answersGivenThisRound++;
     // if (answersGivenThisRound >= 3) {
@@ -248,18 +263,20 @@ function checkDefenseAnswer(selectedType, targetedType) {
     if (selectedType === targetedType) {
         resultElement.textContent = `You chose ${selectedType}. It's not very effective.`;
         incrementWrongAnswer();
-        wrongAnswersThisRound++;
+
     } else if (isWeaknessOf(targetedType, selectedType)) {
         resultElement.textContent = `You chose ${selectedType}. It's super effective!`;
         incrementScore();
-        correctAnswersThisRound++;
+        
     } else {
         resultElement.textContent = `You chose ${selectedType}. It's not very effective.`;
         incrementWrongAnswer();
-        wrongAnswersThisRound++;
+        // wrongAnswersThisRound++;
     }
 
-    answersGivenThisRound++; 
+    stopGame();
+
+    // answersGivenThisRound++; 
     // if (answersGivenThisRound >= 3) {
     //     stopRound();
     // }
