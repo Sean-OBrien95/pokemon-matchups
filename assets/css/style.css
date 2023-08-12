@@ -112,6 +112,7 @@ body {
     background-color: white;
     font-size: 50px;
     margin: 5px;
+    transition-duration: 0.4s;
 }
 
 .red {
@@ -123,11 +124,13 @@ body {
 .red:hover {
     background-color: red;
     color: white;
+    transition-duration: 0.4s;
 }
 
 .blue {
     border-color: blue;
     color: blue;
+    transition-duration: 0.4s;
 }
 
 .blue:active,
@@ -136,23 +139,29 @@ body {
     color: white;
 }
 
-#e-dif:active,
+/* #e-dif:active,
 #e-dif:hover {
     background-color: black;
     color: white;
+} */
+
+.medium-btn:active,
+.medium-btn:hover {
+    background-color: black;
+    color: white;
 }
 
-#m-dif:active,
+/* #m-dif:active,
 #m-dif:hover {
     background-color: black;
     color: white;
-}
+} */
 
-#h-dif:active,
+/* #h-dif:active,
 #h-dif:hover {
     background-color: black;
     color: white;
-}
+} */
 
 .play {
     height: 40px;

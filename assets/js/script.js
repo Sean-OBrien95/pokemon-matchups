@@ -246,7 +246,6 @@ function checkDefenseAnswer(selectedType, targetedType, usernameInput) {
 }
 
 function stopGame() {
-    resetButtons();
     updatePlayButton();
 
     selectedGameType = null;
@@ -254,9 +253,15 @@ function stopGame() {
     document.getElementById("attack-game").classList.add("hidden");
     document.getElementById("def-game").classList.add("hidden");
     document.getElementById("result").textContent = "";
-}
 
-function resetButtons() {
+    const difficultyButtons = document.querySelectorAll(".control");
+    difficultyButtons.forEach(button => button.classList.remove("selected-difficulty"));
+
+    const attackButton = document.getElementById("attack-control");
+    attackButton.classList.remove("selected-attack");
+
+    const defenseButton = document.getElementById("def-control");
+    defenseButton.classList.remove("selected-defense");
 
     const buttons = document.querySelectorAll(".control");
     buttons.forEach(button => button.classList.remove("active"));
