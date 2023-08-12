@@ -70,11 +70,11 @@ document.addEventListener("DOMContentLoaded", function () {
     playButton.disabled = true;
     updatePlayButton();
 
-    payButton.addEventListener("click", function () {
+    playButton.addEventListener("click", function () {
         const usernameInput = document.getElementById("username").value;
-        
-        console.log("Username:", usernameInputInput);
-        if (username === "") {
+
+        console.log("Username:", usernameInput);
+        if (usernameInput === "") {
             alert("Please enter your name before starting.");
             return;
         }
@@ -140,7 +140,7 @@ document.addEventListener("DOMContentLoaded", function () {
         if (selectedGameType && difficulty) {
             document.getElementById("home").classList.add("hidden");
             if (selectedGameType === "attack" || selectedGameType === "defense") {
-                runGame(username);
+                runGame(usernameInput);
             } else {
                 alert("Please select the game type (attack or defense) before starting.");
             }
@@ -161,10 +161,19 @@ function updatePlayButton() {
     }
 }
 
-function runGame(username) {
+// function runGame(usernameInput) {
+//     console.log("Running game with username:", usernameInput);
+//     if (selectedGameType && difficulty) {
+//         playRound(usernameInput);
+//     }
+// }
+
+function runGame(usernameInput) {
     console.log("Running game with username:", usernameInput);
-    if (selectedGameType && difficulty) {
-        playRound(username);
+    if (selectedGameType === "attack" || selectedGameType === "defense") {
+        playRound(usernameInput);
+    } else {
+        alert("Please select the game type (attack or defense) before starting.");
     }
 }
 
@@ -211,7 +220,7 @@ function checkAttackAnswer(selectedType, targetedType, usernameInput) {
         incrementWrongAnswer();
         // wrongAnswersThisRound++;
     } else if (isStrongAgainst(selectedType, targetedType)) {
-        alert(`Well done ${usernameInput}!You chose ${selectedType}. It's super effective!`);
+        alert(`Well done ${usernameInput}! You chose ${selectedType}. It's super effective!`);
         incrementScore();
         // correctAnswersThisRound++;
     } else {
@@ -299,7 +308,7 @@ function isWeaknessOf(selectedType, targetedType) {
     return type.weakness.includes(selectedType);
 }
 
-function displayGeneralQuestion(selectedType, username) {
+function displayGeneralQuestion(selectedType, usernameInput) {
 
     const resultElement = document.getElementById("result");
     resultElement.textContent = "";
