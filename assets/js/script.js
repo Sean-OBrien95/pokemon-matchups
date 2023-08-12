@@ -13,9 +13,9 @@ let timerDuration = getTimerDuration(difficulty);
 let timerInterval;
 let overallScore = 0;
 let overallWrongAnswers = 0;
-let correctAnswersThisRound = 0;
-let wrongAnswersThisRound = 0;
-let answersGivenThisRound = 0;
+// let correctAnswersThisRound = 0;
+// let wrongAnswersThisRound = 0;
+// let answersGivenThisRound = 0;
 
 const pokeTypes = [
     {
@@ -142,9 +142,9 @@ function updatePlayButton() {
 
 function runGame() {
     if (selectedGameType && difficulty) {
-        currentRound = 1;
-        overallScore = 0;
-        overallWrongAnswers = 0;
+        // currentRound = 1;
+        // overallScore = 0;
+        // overallWrongAnswers = 0;
         startTimer();
         playNextRound();
     }
@@ -164,24 +164,24 @@ function playNextRound() {
             document.getElementById("def-game").classList.remove("hidden");
             document.getElementById("attack-game").classList.add("hidden");
             displayGeneralQuestion(selectedGameType);
-        }
-    } else {
-        if (overallScore > overallWrongAnswers) {
-            alert("Congratulations! You won the best of 3 series.");
-        } else if (overallScore < overallWrongAnswers) {
-            alert("You lost the best of 3 series. Try again!");
-        }
-    }
-    // currentRound = 1;
-    // overallScore = 0;
-    // overallWrongAnswers = 0;
+        } 
+    } 
 
-    overallScore += (correctAnswersThisRound >= 2) ? 1 : 0;
-    overallWrongAnswers += (wrongAnswersThisRound <= 1) ? 1 : 0;
+    // console.log("overallScore:", overallScore);
+    // console.log("overallWrongAnswers:", overallWrongAnswers);
 
-    correctAnswersThisRound = 0;
-    wrongAnswersThisRound = 0;
-    answersGivenThisRound = 0;
+    // if (overallScore >= 2) {
+    //         alert("Congratulations! You won the best of 3 series.");
+    //     } else {
+    //         alert("You lost the best of 3 series. Try again!");
+    //     }
+
+    // overallScore += (correctAnswersThisRound >= 2) ? 1 : 0;
+    // overallWrongAnswers += (wrongAnswersThisRound <= 1) ? 1 : 0;
+
+    // correctAnswersThisRound = 0;
+    // wrongAnswersThisRound = 0;
+    // answersGivenThisRound = 0;
 
     clearInterval(timerInterval);
 
@@ -195,6 +195,7 @@ function playNextRound() {
     document.getElementById("wrong").innerText = overallWrongAnswers;
 
     return;
+
 }
 
 function getTimerDuration(difficulty) {
@@ -208,6 +209,7 @@ function getTimerDuration(difficulty) {
 
 function startTimer() {
     let timeRemaining = timerDuration;
+    const timerElement = document.getElementById("timer");
     timerInterval = setInterval(function () {
         document.getElementById("timer").innerText = timeRemaining;
         timeRemaining--;
