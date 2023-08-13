@@ -171,9 +171,7 @@ Please see attached wireframes for the main page and game area. I have used desk
 
 # Testing
 
-- Ran html through W3C validator, have gotten back no errors but have gotten back 'warnings'. These warning are due to use of h1 elements in parts of the page that are not the very top. Due to time constraints, I am not able to change this right away as there is a lot of styling applied. If I were to re do the project, I would keep this in mind for future
-
-- ran through Jigsaw css checker, no issues.
+- Ran html through W3C validator and Jigsaw css validator with no issues. HAve received some warnings and undefined variables on JSHint however upon examination needed these to function.
 
 - I have checked screen compatibility for phone and tablet, I have checked tablet by using the inspect tool and shrinking down to size and have tested on my own personal mobile to assure it is responsive.
 
@@ -183,16 +181,14 @@ Throughout the project I had encountered several bugs which I will give details 
 
 Resolved bugs:
 
-- An issue I encountered was when developing my FAQ page. After designing it the footer was going up the page vertically and not horizontally at the bottom. I assumed it must be an issue with HTML and not CSS as it was unique to this page. After scanning through, I noticed I had left a tag unclosed, trying this brought most down to horizontal level, but not all. Then I noticed the entire thing was in one big section. When breaking it off into smaller one the issue had resolved.
-- An issue I had encountered when making my page responsive was with my logo. I had it floated to the left and then pushed out with padding to the center. This looked good on desktop but not on other screen sizes. I had initially tried using a flex command to fix this but without much success. I ultimately decided to keep it floated to the left with a small amount of padding as this fixed the issue and made it look good on multiple screen sizes.
-- Another bug I came across when when I was adding in my background images for the hero image. I was not able to get this to fit inside the the area I wanted to without looking distorted. After trying to alter the sizing, I used a larger image and a cover command which resolved the issue.
-- I also encountered a bug when attaching the youtube videos to the tricks page. Initially were not loading correctling and I was unsure why. After having a look online, I realised I was using incorrect tags. When changed to iframe tags this then worked correctly.
+- An issue I encountered was when when I was programming the defense game. When I entered the game the uer options were appearing, but not the random type. Upon investigation, I found that the user buttons were making the scores go up. This was due to my query selector using the same class to target my attack game image. I split these into IDs and then targeted those instead, and it was working as intended.
+- Another issue I encountered was my defense game behaving the same as my attack game. Was unsure why and when I investigated I was calling the wrong array giving the same result. I changed my function to look for the weakness instead and worked perfectly.
+- Another issue I has was with alerts. At the time I was attempting to implement a 3 eound system which did not make it to the end. When I clicked play my alerts whre appearing before the start of the game. I removed this feature and restructured my how my alerts were being called to resolve the issue.
+- Another issue I had was correctly getting the username to appear. In the alert I kept getting the object or undefined. I realised this was being passed through the system incorrectly. I changed the variable name and this solved the issue.
 
 Unresolved bugs:
 
-- A bug I have left uncorrected is on the contact page. The styling shows shadowing on the desktop version but when I checked on the mobile this effect does not appear. I have tried to address this by increasing the shadow effect and this has not worked. Due to time constraints I was not able to find an alternative but I will update in future to something that is compatible with ios
-
-- Another bug left uncorrected was the performance of the pages on mobile screens. I researched how to fix this and came across lazy loading. This solution looked like it would fix the issue how ever it would require JavaScript and I wanted to stick to html and css for this project.
+- There are no unresolved bugs in the project to my knowing.
 
 # Lighthouse Testing
 
