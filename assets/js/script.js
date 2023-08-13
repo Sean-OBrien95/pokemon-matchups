@@ -1,12 +1,6 @@
 // different variables
 
-const buttons = document.getElementsByClassName("control");
-const rightScore = document.getElementById("score");
-const wrongScore = document.getElementById("wrong");
-let score = 0;
-let wrongAnswers = 0;
 let selectedGameType = null;
-let defenseTargetType = null;
 let difficulty = "easy";
 let usernameInput = "";
 

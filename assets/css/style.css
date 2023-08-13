@@ -15,6 +15,7 @@ body {
 
 .logo {
     height: 45px;
+    width: 45px;
 }
 
 #para {
@@ -41,7 +42,6 @@ body {
 }
 
 .select-diff {
-    /* height: 50; */
     display: flex;
     justify-content: center;
     padding: 15px;
@@ -145,6 +145,8 @@ img {
     width: 200px;
     height: 78px;
 }
+
+
 
 /*selected classes*/
 
