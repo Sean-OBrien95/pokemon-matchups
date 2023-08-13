@@ -6,7 +6,6 @@ body {
 }
 
 /* header */
-
 .heading {
     font-size: 50px;
     font-family: 'Tektur', cursive;
@@ -23,7 +22,6 @@ body {
 }
 
 /* game area */
-
 .game-area {
     background-color: #e5e4e2;
     box-sizing: border-box;
@@ -55,7 +53,6 @@ body {
     font-size: 30px;
 }
 
-
 #score {
     color: green;
     font-weight: bold;
@@ -66,27 +63,12 @@ body {
     font-weight: bold;
 }
 
-.answer-message {
-    display: none;
-    font-size: 1rem;
-}
-
-#answer-box {
-    border: none;
-    color: #445361;
-    display: inline-block;
-    height: 40px;
-    width: 80px;
-    font-size: 1.2rem;
-}
-
 .scores {
     display: inline-block;
     padding: 25px;
 }
 
 /* buttons */
-
 .btn {
     font-family: 'Orbitron', sans-serif;
     text-transform: uppercase;
@@ -188,4 +170,78 @@ body {
 
 .random-type-image {
     margin-top: 50px;
+}
+
+/* media queries for smaller screen sizes */
+
+@media screen and (max-width: 900px) {
+
+    .big-btn,
+    .medium-btn {
+        font-size: 30px;
+    }
+
+    #para {
+        padding: 0 50px;
+    }
+}
+
+@media screen and (max-width: 460px) {
+
+    .game-area {
+        height: 500px;
+        max-height: 500px;
+    }
+
+    .controls-area {
+        flex-direction: column;
+        margin: 3px;
+        padding: 3px;
+        align-items: center;
+    }
+
+    .select-diff {
+        flex-direction: column;
+        margin: 3px;
+        padding: 3px;
+        align-items: center;
+    }
+
+    .big-btn {
+        width: 300px;
+        padding: 10px;
+        margin: 5px;
+    }
+
+    .medium-btn {
+        width: 300px;
+        height: 60px;
+        padding: 10px;
+        margin: 5px;
+    }
+
+    .score-area {
+        padding: 5px;
+    }
+
+    .scores {
+        padding: 5px;
+        margin: 5px;
+    }
+}
+
+@media screen and (max-width: 350px) {
+
+    .btn {
+        width: 200px;
+    }
+
+    .big-btn {
+        font-size: 20px;
+    }
+
+    #para {
+        padding: 15px;
+        margin: 5px;
+    }
 }

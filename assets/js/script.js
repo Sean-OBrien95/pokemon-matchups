@@ -217,15 +217,13 @@ function getTypes(difficulty) {
 function checkAttackAnswer(selectedType, targetedType, usernameInput) {
 
     if (selectedType === targetedType) {
-        alert(`Sorry ${usernameInput}, you chose ${selectedType}. It's not very effective.`);
+        alert(`Sorry ${usernameInput}, you chose ${selectedType}. Try another round!`);
         incrementWrongAnswer();
-
     } else if (isStrongAgainst(selectedType, targetedType)) {
         alert(`Well done ${usernameInput}! You chose ${selectedType}. It's super effective!`);
         incrementScore();
-
     } else {
-        alert(`Sorry ${usernameInput}, you chose ${selectedType}. It's not very effective.`);
+        alert(`Sorry ${usernameInput}, you chose ${selectedType}. Try another round!`);
         incrementWrongAnswer();
 
     }
@@ -237,14 +235,14 @@ function checkAttackAnswer(selectedType, targetedType, usernameInput) {
 function checkDefenseAnswer(selectedType, targetedType, usernameInput) {
 
     if (selectedType === targetedType) {
-        alert(`Sorry, ${usernameInput}, you chose ${selectedType}.`);
+        alert(`Sorry, ${usernameInput}, you chose ${selectedType}. Try another round!`);
         incrementWrongAnswer();
 
     } else if (isWeaknessOf(targetedType, selectedType)) {
-        alert(`Well done ${usernameInput}! You chose ${selectedType}. It's super effective!`);
+        alert(`Well done ${usernameInput}! You chose ${selectedType}. Thats correct!`);
         incrementScore();
     } else {
-        alert(`Sorry, ${usernameInput}, you chose ${selectedType}. It's not very effective.`);
+        alert(`Sorry, ${usernameInput}, you chose ${selectedType}. Try another round!`);
         incrementWrongAnswer();
 
     }
@@ -289,13 +287,17 @@ function incrementWrongAnswer() {
 }
 
 function isStrongAgainst(selectedType, targetedType) {
+
     const type = pokeTypes.find((t) => t.type === selectedType);
     return type.strength.includes(targetedType);
+
 }
 
 function isWeaknessOf(selectedType, targetedType) {
+
     const type = pokeTypes.find((t) => t.type === targetedType);
     return type.weakness.includes(selectedType);
+
 }
 
 function displayGeneralQuestion(selectedType, usernameInput, availableTypes) {
