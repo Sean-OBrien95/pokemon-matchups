@@ -77,6 +77,13 @@ const pokeTypes = [
 // wait for the DOM to be fully loaded before executing any JavaScript
 
 document.addEventListener("DOMContentLoaded", function () {
+
+    /**
+     * set up event listeners for the play buttons and keep
+     * it diabled initially. checks if username and difficulty
+     * are slected
+     */
+
     const attackControlButton = document.getElementById("attack-control");
     const defenseControlButton = document.getElementById("def-control");
 
@@ -86,22 +93,15 @@ document.addEventListener("DOMContentLoaded", function () {
 
     playButton.addEventListener("click", function () {
         const usernameInput = document.getElementById("username").value;
-
         console.log("Username:", usernameInput);
         if (usernameInput === "") {
-            alert("Please enter your name before starting.");
             return;
         }
-
         if (selectedGameType && difficulty) {
             document.getElementById("home").classList.add("hidden");
             if (selectedGameType === "attack" || selectedGameType === "defense") {
                 runGame(usernameInput, availableTypes);
-            } else {
-                alert("Please select the game type (attack or defense) before starting.");
             }
-        } else {
-            alert("Please select both the game type and difficulty before starting.");
         }
     });
 
@@ -110,6 +110,11 @@ document.addEventListener("DOMContentLoaded", function () {
         usernameInput = this.value.trim();
         updatePlayButton();
     });
+
+    /**
+     * Set up event listeners and click events for the
+     * various buttons that appear relating to game type and difficulty
+     */
 
     const easyButton = document.getElementById("e-dif");
     const mediumButton = document.getElementById("m-dif");
@@ -174,6 +179,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
 });
 
+/**
+ * update state of play button based on usr inputs.
+ * checks if play button disabled/enabled
+ */
+
 function updatePlayButton() {
     const playButton = document.getElementById("playButton");
     const usernameInput = document.getElementById("username").value;
@@ -185,12 +195,22 @@ function updatePlayButton() {
     }
 }
 
+/** 
+ * runs game based on users input. Check which game and how many types to
+ * generate based on selected difficulty
+ */
+
 function runGame(usernameInput, availableTypes) {
 
     if (selectedGameType === "attack" || selectedGameType === "defense") {
         playRound(usernameInput, availableTypes);
     }
 }
+
+/**
+ * starts game type based on user input and hides sections that
+ * would not be needed for the selected game type
+ */
 
 function playRound(usernameInput, availableTypes) {
     document.getElementById("attack-game").classList.add("hidden");
@@ -205,6 +225,11 @@ function playRound(usernameInput, availableTypes) {
     displayGeneralQuestion(selectedGameType, usernameInput, availableTypes);
 }
 
+/**
+ * returns established array of pokemon types based on
+ * the selected difficulty
+ */
+
 function getTypes(difficulty) {
     switch (difficulty) {
         case "easy": return pokeTypes.slice(0, 4);
@@ -213,6 +238,8 @@ function getTypes(difficulty) {
         default: return pokeTypes.slice(0, 4);
     }
 }
+
+// check user attack answers and displays appropriate alert
 
 function checkAttackAnswer(selectedType, targetedType, usernameInput) {
 
@@ -232,6 +259,8 @@ function checkAttackAnswer(selectedType, targetedType, usernameInput) {
 
 }
 
+// check user defense answers and displays appropriate alert
+
 function checkDefenseAnswer(selectedType, targetedType, usernameInput) {
 
     if (selectedType === targetedType) {
@@ -250,6 +279,10 @@ function checkDefenseAnswer(selectedType, targetedType, usernameInput) {
     stopGame();
 
 }
+
+/**
+ * stops the game and resets buttons and user interface
+ */
 
 function stopGame() {
     updatePlayButton();
@@ -273,6 +306,8 @@ function stopGame() {
     buttons.forEach(button => button.classList.remove("active"));
 }
 
+// increments correct answers
+
 function incrementScore() {
 
     let oldScore = parseInt(document.getElementById("score").innerHTML);
@@ -280,11 +315,15 @@ function incrementScore() {
 
 }
 
+// increments incorrect answers
+
 function incrementWrongAnswer() {
 
     let oldScore = parseInt(document.getElementById("wrong").innerHTML);
     document.getElementById("wrong").innerText = ++oldScore;
 }
+
+// checks if the selected type is strong against the target type
 
 function isStrongAgainst(selectedType, targetedType) {
 
@@ -293,6 +332,8 @@ function isStrongAgainst(selectedType, targetedType) {
 
 }
 
+// checks if the selected type is weak against the target type
+
 function isWeaknessOf(selectedType, targetedType) {
 
     const type = pokeTypes.find((t) => t.type === targetedType);
@@ -300,12 +341,19 @@ function isWeaknessOf(selectedType, targetedType) {
 
 }
 
+/**
+ * Display the selected question from the user. Takes information from
+ * the selected game type(attack/defense), inputted name, and available types
+ */
+
 function displayGeneralQuestion(selectedType, usernameInput, availableTypes) {
 
     const resultElement = document.getElementById("result");
     resultElement.textContent = "";
 
     const targetImages = document.getElementsByClassName("target-image");
+
+    // Get maximum index based on difficulty
 
     let maxIndex = 0;
 
@@ -316,6 +364,8 @@ function displayGeneralQuestion(selectedType, usernameInput, availableTypes) {
     } else if (difficulty === "hard") {
         maxIndex = 7;
     }
+
+    // select a random type and update images
 
     const randomIndex = Math.floor(Math.random() * maxIndex);
     const targetType = pokeTypes[randomIndex];
@@ -344,6 +394,8 @@ function displayGeneralQuestion(selectedType, usernameInput, availableTypes) {
     }
 
     buttonsContainer.innerHTML = "";
+
+    // Creates buttons for available types
 
     for (const type of availableTypes) {
         const button = document.createElement("button");
