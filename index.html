@@ -14,6 +14,8 @@
 </head>
 
 <body>
+
+    <!--introduction area-->
     <h1 class="heading">
         <img class="logo" src="assets/images/pokeball-logo.jpg" alt="Pokeball logo"> Pokemon Matchups
     </h1>
@@ -22,6 +24,7 @@
         one and
         other! To start, selct which game you would like to play and your difficulty.</p>
 
+    <!--game selection area-->
     <div class="game-area" id="home">
         <div class="controls-area">
             <button class="big-btn btn red control" id="attack-control" data-type="attack"><i
@@ -30,6 +33,7 @@
                     class="fa-solid fa-shield-halved"></i>
                 Defense</button>
         </div>
+        <!--difficulty selection area-->
         <div class="select-diff">
             <button class="medium-btn btn control" id="e-dif" data-type="easy">Easy</button>
             <button class="medium-btn btn control" id="m-dif" data-type="medium">Medium</button>
@@ -42,25 +46,18 @@
         </div>
     </div>
 
+    <!--attack game area-->
+
     <div id="attack-game" class="attack-div hidden">
         <p>Select a type to attack</p>
         <div id="attack-buttons" class="button-div">
             <div class="button-pair">
                 <img class="target-image button-pair1" src="" alt="">
                 <img class="target-image button-pair1" src="" alt="">
-            </div>
-            <br>
-            <div class="button-pair">
                 <img class="target-image button-pair2" src="" alt="">
                 <img class="target-image button-pair2" src="" alt="">
-            </div>
-            <br>
-            <div class="button-pair">
                 <img class="target-image button-pair3" src="" alt="">
                 <img class="target-image button-pair3" src="" alt="">
-            </div>
-            <br>
-            <div class="button-pair">
                 <img class="target-image button-pair4" src="" alt="">
                 <img class="target-image button-pair4" src="" alt="">
             </div>
@@ -69,23 +66,24 @@
     </div>
     <div id="result"></div>
 
+    <!--defense game area-->
+
     <div id="def-game" class="def-div hidden">
         <p>Select a type to defend</p>
         <div id="defense-buttons" class="button-div">
             <img class="target-image button-pair1" src="" alt="">
             <img class="target-image button-pair1" src="" alt="">
-            <br>
             <img class="target-image button-pair2" src="" alt="">
             <img class="target-image button-pair2" src="" alt="">
-            <br>
             <img class="target-image button-pair3" src="" alt="">
             <img class="target-image button-pair3" src="" alt="">
-            <br>
             <img class="target-image button-pair4" src="" alt="">
             <img class="target-image button-pair4" src="" alt="">
         </div>
         <img class="random-type-image" id="random-type-b">
     </div>
+
+    <!--score area-->
 
     <div class="score-area">
         <p class="scores">Games Won <span id="score">0</span></p>

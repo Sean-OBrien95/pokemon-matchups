@@ -151,11 +151,13 @@ body {
     margin: 20px;
 }
 
-/**/
+/* hidden */
 
 .hidden {
     display: none;
 }
+
+/*selected classes*/
 
 .selected-attack {
     background-color: red;
@@ -172,14 +174,7 @@ body {
     color: white;
 }
 
-
-.button-pair {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-    margin-bottom: 20px;
-}
+/*attack/defense game styling*/
 
 .target-image {
     width: 100px;
@@ -187,38 +182,10 @@ body {
 }
 
 .button-div {
-    max-width: 600px;
+    max-width: 1000px;
     margin: 0 auto;
 }
 
-#attack-buttons {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: flex-start;
-    align-items: center;
-    position: relative;
-    right: 15%;
-}
-
-#random-type-a {
-    position: absolute;
-    right: 20%;
-    top: 50%;
-    transform: translateY(-50%)
-}
-
-#defense-buttons {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: flex-start;
-    align-items: center;
-    position: relative;
-    left: 25%;
-}
-
-#random-type-b {
-    position: absolute;
-    left: 20%;
-    top: 50%;
-    transform: translateY(-50%)
+.random-type-image {
+    margin-top: 50px;
 }

@@ -1,3 +1,4 @@
+// different variables
 
 const buttons = document.getElementsByClassName("control");
 const rightScore = document.getElementById("score");
@@ -8,6 +9,11 @@ let selectedGameType = null;
 let defenseTargetType = null;
 let difficulty = "easy";
 let usernameInput = "";
+
+/**
+ * Pokemon type arrays. Each contains strength, weakness, and img source
+ * that will be used throughout the application
+ */
 
 const pokeTypes = [
     {
@@ -67,6 +73,8 @@ const pokeTypes = [
         alt: "Fighting type image"
     }
 ];
+
+// wait for the DOM to be fully loaded before executing any JavaScript
 
 document.addEventListener("DOMContentLoaded", function () {
     const attackControlButton = document.getElementById("attack-control");
