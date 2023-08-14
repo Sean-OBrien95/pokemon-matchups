@@ -388,7 +388,7 @@ The following browsers were used during testing:
     </tr>
     <tr>
         <td>Random type is fire, user type is water, give correct alert</td>
-        <td>Fire type is generated and the user clicks water, they will get an incorrect alert and games won will increase</td>
+        <td>Fire type is generated and the user clicks water, they will get a correct alert and games won will increase</td>
         <td>Click on water when fire has been selected as random type</td>
         <td>Correct alert appears, games won increments by one</td>
         <td>pass</td>
@@ -402,7 +402,7 @@ The following browsers were used during testing:
     </tr>
     <tr>
         <td>Random type is fire, user type is ground, give correct alert</td>
-        <td>Fire type is generated and the user clicks ground, they will get an correct alert and games won will increase</td>
+        <td>Fire type is generated and the user clicks ground, they will get a correct alert and games won will increase</td>
         <td>Click on ground when fire has been selected as random type</td>
         <td>Correct alert appears, games won increments by one</td>
         <td>pass</td>
@@ -423,7 +423,7 @@ The following browsers were used during testing:
     </tr>
     <tr>
         <td>Random type is fire, user type is rock, give correct alert</td>
-        <td>Fire type is generated and the user clicks rock, they will get an correct alert and games won will increase</td>
+        <td>Fire type is generated and the user clicks rock, they will get a correct alert and games won will increase</td>
         <td>Click on rock when fire has been selected as random type</td>
         <td>Correct alert appears, games won increments by one</td>
         <td>pass</td>
@@ -442,9 +442,387 @@ The following browsers were used during testing:
         <td>Incorrect alert appears, games lost increments by one</td>
         <td>pass</td>
     </tr>
+    <tr>
+        <td>Random type is water, user type is water, give incorrect alert</td>
+        <td>Water type is generated and the user clicks water, they will get an incorrect alert and games lost will increase</td>
+        <td>Click on water when water has been selected as random type</td>
+        <td>Incorrect alert appears, games lost increments by one</td>
+        <td>pass</td>
+    </tr>
+    <tr>
+        <td>Random type is water, user type is grass, give correct alert</td>
+        <td>Water type is generated and the user clicks grass, they will get a correct alert and games won will increase</td>
+        <td>Click on grass when water has been selected as random type</td>
+        <td>Correct alert appears, games won increments by one</td>
+        <td>pass</td>
+    </tr>
+    <tr>
+        <td>Random type is water, user type is ground, give incorrect alert</td>
+        <td>Water type is generated and the user clicks ground, they will get an incorrect alert and games lost will increase</td>
+        <td>Click on ground when water has been selected as random type</td>
+        <td>Incorrect alert appears, games lost increments by one</td>
+        <td>pass</td>
+    </tr>
+    <tr>
+        <td>Random type is water, user type is electric, give correct alert</td>
+        <td>Water type is generated and the user clicks electric, they will get a correct alert and games won will increase</td>
+        <td>Click on electric when water has been selected as random type</td>
+        <td>Correct alert appears, games won increments by one</td>
+        <td>pass</td>
+    </tr>
+    <tr>
+        <td>Random type is water, user type is flying, give incorrect alert</td>
+        <td>Water type is generated and the user clicks flying, they will get an incorrect alert and games lost will increase</td>
+        <td>Click on flying when water has been selected as random type</td>
+        <td>Incorrect alert appears, games lost increments by one</td>
+        <td>pass</td>
+    </tr>
+    <tr>
+        <td>Random type is water, user type is rock, give incorrect alert</td>
+        <td>Water type is generated and the user clicks rock, they will get an incorrect alert and games lost will increase</td>
+        <td>Click on rock when water has been selected as random type</td>
+        <td>Incorrect alert appears, games lost increments by one</td>
+        <td>pass</td>
+    </tr>
+    <tr>
+        <td>Random type is water, user type is fighting, give incorrect alert</td>
+        <td>Water type is generated and the user clicks fighting, they will get an incorrect alert and games lost will increase</td>
+        <td>Click on fighting when water has been selected as random type</td>
+        <td>Incorrect alert appears, games lost increments by one</td>
+        <td>pass</td>
+    </tr>
+    <tr>
+        <td>Random type is grass, user type is fire, give correct alert</td>
+        <td>Grass type is generated and the user clicks fire, they will get a correct alert and games won will increase</td>
+        <td>Click on fire when grass has been selected as random type</td>
+        <td>Correct alert appears, games won increments by one</td>
+        <td>pass</td>
+    </tr>
+    <tr>
+        <td>Random type is grass, user type is water, give incorrect alert</td>
+        <td>Grass type is generated and the user clicks water, they will get an incorrect alert and games lost will increase</td>
+        <td>Click on water when grass has been selected as random type</td>
+        <td>Incorrect alert appears, games lost increments by one</td>
+        <td>pass</td>
+    </tr>
+    <tr>
+        <td>Random type is grass, user type is grass, give incorrect alert</td>
+        <td>Grass type is generated and the user clicks grass, they will get an incorrect alert and games lost will increase</td>
+        <td>Click on grass when grass has been selected as random type</td>
+        <td>Incorrect alert appears, games lost increments by one</td>
+        <td>pass</td>
+    </tr>
+    <tr>
+        <td>Random type is grass, user type is ground, give incorrect alert</td>
+        <td>Grass type is generated and the user clicks ground, they will get an incorrect alert and games lost will increase</td>
+        <td>Click on ground when grass has been selected as random type</td>
+        <td>Incorrect alert appears, games lost increments by one</td>
+        <td>pass</td>
+    </tr>
+    <tr>
+        <td>Random type is grass, user type is electric, give incorrect alert</td>
+        <td>Grass type is generated and the user clicks electric, they will get an incorrect alert and games lost will increase</td>
+        <td>Click on electric when grass has been selected as random type</td>
+        <td>Incorrect alert appears, games lost increments by one</td>
+        <td>pass</td>
+    </tr>
+    <tr>
+        <td>Random type is grass, user type is flying, give correct alert</td>
+        <td>Grass type is generated and the user clicks flying, they will get a correct alert and games won will increase</td>
+        <td>Click on flying when grass has been selected as random type</td>
+        <td>Correct alert appears, games won increments by one</td>
+        <td>pass</td>
+    </tr>
+    <tr>
+        <td>Random type is grass, user type is rock, give incorrect alert</td>
+        <td>Grass type is generated and the user clicks rock, they will get an incorrect alert and games lost will increase</td>
+        <td>Click on rock when grass has been selected as random type</td>
+        <td>Incorrect alert appears, games lost increments by one</td>
+        <td>pass</td>
+    </tr>
+    <tr>
+        <td>Random type is grass, user type is fighting, give incorrect alert</td>
+        <td>Grass type is generated and the user clicks fighting, they will get an incorrect alert and games lost will increase</td>
+        <td>Click on fighting when grass has been selected as random type</td>
+        <td>Incorrect alert appears, games lost increments by one</td>
+        <td>pass</td>
+    </tr>
+    <tr>
+        <td>Random type is ground, user type is fire, give incorrect alert</td>
+        <td>Ground type is generated and the user clicks fire, they will get an incorrect alert and games lost will increase</td>
+        <td>Click on fire when ground has been selected as random type</td>
+        <td>Incorrect alert appears, games lost increments by one</td>
+        <td>pass</td>
+    </tr>
+    <tr>
+        <td>Random type is ground, user type is water, give correct alert</td>
+        <td>Ground type is generated and the user clicks water, they will get a correct alert and games won will increase</td>
+        <td>Click on water when ground has been selected as random type</td>
+        <td>Correct alert appears, games won increments by one</td>
+        <td>pass</td>
+    </tr>
+    <tr>
+        <td>Random type is ground, user type is grass, give correct alert</td>
+        <td>Ground type is generated and the user clicks grass, they will get a correct alert and games won will increase</td>
+        <td>Click on grass when ground has been selected as random type</td>
+        <td>Correct alert appears, games won increments by one</td>
+        <td>pass</td>
+    </tr>
+    <tr>
+        <td>Random type is ground, user type is ground, give incorrect alert</td>
+        <td>Ground type is generated and the user clicks ground, they will get an incorrect alert and games lost will increase</td>
+        <td>Click on ground when ground has been selected as random type</td>
+        <td>Incorrect alert appears, games lost increments by one</td>
+        <td>pass</td>
+    </tr>
+    <tr>
+        <td>Random type is ground, user type is electric, give incorrect alert</td>
+        <td>Ground type is generated and the user clicks electric, they will get an incorrect alert and games lost will increase</td>
+        <td>Click on electric when ground has been selected as random type</td>
+        <td>Incorrect alert appears, games lost increments by one</td>
+        <td>pass</td>
+    </tr>
+    <tr>
+        <td>Random type is ground, user type is flying, give incorrect alert</td>
+        <td>Ground type is generated and the user clicks flying, they will get an incorrect alert and games lost will increase</td>
+        <td>Click on flying when ground has been selected as random type</td>
+        <td>Incorrect alert appears, games lost increments by one</td>
+        <td>pass</td>
+    </tr>
+    <tr>
+        <td>Random type is ground, user type is rock, give incorrect alert</td>
+        <td>Ground type is generated and the user clicks rock, they will get an incorrect alert and games lost will increase</td>
+        <td>Click on rock when ground has been selected as random type</td>
+        <td>Incorrect alert appears, games lost increments by one</td>
+        <td>pass</td>
+    </tr>
+    <tr>
+        <td>Random type is ground, user type is fighting, give incorrect alert</td>
+        <td>Ground type is generated and the user clicks fighting, they will get an incorrect alert and games lost will increase</td>
+        <td>Click on fighting when ground has been selected as random type</td>
+        <td>Incorrect alert appears, games lost increments by one</td>
+        <td>pass</td>
+    </tr>
+    <tr>
+        <td>Random type is electric, user type is fire, give incorrect alert</td>
+        <td>Electric type is generated and the user clicks fire, they will get an incorrect alert and games lost will increase</td>
+        <td>Click on fire when Electric has been selected as random type</td>
+        <td>Incorrect alert appears, games lost increments by one</td>
+        <td>pass</td>
+    </tr>
+    <tr>
+        <td>Random type is electric, user type is water, give incorrect alert</td>
+        <td>Electric type is generated and the user clicks water, they will get an incorrect alert and games lost will increase</td>
+        <td>Click on water when Electric has been selected as random type</td>
+        <td>Incorrect alert appears, games lost increments by one</td>
+        <td>pass</td>
+    </tr>
+    <tr>
+        <td>Random type is electric, user type is grass, give incorrect alert</td>
+        <td>Electric type is generated and the user clicks grass, they will get an incorrect alert and games lost will increase</td>
+        <td>Click on grass when Electric has been selected as random type</td>
+        <td>Incorrect alert appears, games lost increments by one</td>
+        <td>pass</td>
+    </tr>
+    <tr>
+        <td>Random type is electric, user type is ground, give correct alert</td>
+        <td>Electric type is generated and the user clicks ground, they will get a correct alert and games won will increase</td>
+        <td>Click on ground when Electric has been selected as random type</td>
+        <td>Incorrect alert appears, games lost increments by one</td>
+        <td>pass</td>
+    </tr>
+    <tr>
+        <td>Random type is electric, user type is electric, give incorrect alert</td>
+        <td>Electric type is generated and the user clicks electric, they will get an incorrect alert and games lost will increase</td>
+        <td>Click on electric when Electric has been selected as random type</td>
+        <td>Incorrect alert appears, games lost increments by one</td>
+        <td>pass</td>
+    </tr>
+    <tr>
+        <td>Random type is electric, user type is flying, give incorrect alert</td>
+        <td>Electric type is generated and the user clicks flying, they will get an incorrect alert and games lost will increase</td>
+        <td>Click on flting when Electric has been selected as random type</td>
+        <td>Incorrect alert appears, games lost increments by one</td>
+        <td>pass</td>
+    </tr>
+    <tr>
+        <td>Random type is electric, user type is rock, give incorrect alert</td>
+        <td>Electric type is generated and the user clicks rock, they will get an incorrect alert and games lost will increase</td>
+        <td>Click on rock when Electric has been selected as random type</td>
+        <td>Incorrect alert appears, games lost increments by one</td>
+        <td>pass</td>
+    </tr>
+    <tr>
+        <td>Random type is electric, user type is fighting, give incorrect alert</td>
+        <td>Electric type is generated and the user clicks fighting, they will get an incorrect alert and games lost will increase</td>
+        <td>Click on fighting when Electric has been selected as random type</td>
+        <td>Incorrect alert appears, games lost increments by one</td>
+        <td>pass</td>
+    </tr>
+    <tr>
+        <td>Random type is flying, user type is fire, give incorrect alert</td>
+        <td>Flying type is generated and the user clicks fire, they will get an incorrect alert and games lost will increase</td>
+        <td>Click on fire when flying has been selected as random type</td>
+        <td>Incorrect alert appears, games lost increments by one</td>
+        <td>pass</td>
+    </tr>
+    <tr>
+        <td>Random type is flying, user type is water, give incorrect alert</td>
+        <td>Flying type is generated and the user clicks water, they will get an incorrect alert and games lost will increase</td>
+        <td>Click on water when flying has been selected as random type</td>
+        <td>Incorrect alert appears, games lost increments by one</td>
+        <td>pass</td>
+    </tr>
+    <tr>
+        <td>Random type is flying, user type is grass, give incorrect alert</td>
+        <td>Flying type is generated and the user clicks grass, they will get an incorrect alert and games lost will increase</td>
+        <td>Click on grass when flying has been selected as random type</td>
+        <td>Incorrect alert appears, games lost increments by one</td>
+        <td>pass</td>
+    </tr>
+    <tr>
+        <td>Random type is flying, user type is ground, give incorrect alert</td>
+        <td>Flying type is generated and the user clicks ground, they will get an incorrect alert and games lost will increase</td>
+        <td>Click on ground when flying has been selected as random type</td>
+        <td>Incorrect alert appears, games lost increments by one</td>
+        <td>pass</td>
+    </tr>
+    <tr>
+        <td>Random type is flying, user type is electric, give correct alert</td>
+        <td>Flying type is generated and the user clicks electric, they will get a correct alert and games won will increase</td>
+        <td>Click on electric when flying has been selected as random type</td>
+        <td>Correct alert appears, games lost increments by one</td>
+        <td>pass</td>
+    </tr>
+    <tr>
+        <td>Random type is flying, user type is flying, give incorrect alert</td>
+        <td>Flying type is generated and the user clicks flying, they will get an incorrect alert and games lost will increase</td>
+        <td>Click on flying when flying has been selected as random type</td>
+        <td>Incorrect alert appears, games lost increments by one</td>
+        <td>pass</td>
+    </tr>
+    <tr>
+        <td>Random type is flying, user type is rock, give correct alert</td>
+        <td>Flying type is generated and the user clicks rock, they will get a correct alert and games won will increase</td>
+        <td>Click on rock when flying has been selected as random type</td>
+        <td>Correct alert appears, games won increments by one</td>
+        <td>pass</td>
+    </tr>
+    <tr>
+        <td>Random type is flying, user type is fighting, give incorrect alert</td>
+        <td>Flying type is generated and the user clicks fighting, they will get an incorrect alert and games lost will increase</td>
+        <td>Click on fighting when flying has been selected as random type</td>
+        <td>Incorrect alert appears, games lost increments by one</td>
+        <td>pass</td>
+    </tr>
+    <tr>
+        <td>Random type is rock, user type is fire, give incorrect alert</td>
+        <td>Rock type is generated and the user clicks fire, they will get an incorrect alert and games lost will increase</td>
+        <td>Click on fire when rock has been selected as random type</td>
+        <td>Incorrect alert appears, games lost increments by one</td>
+        <td>pass</td>
+    </tr>
+    <tr>
+        <td>Random type is rock, user type is water, give correct alert</td>
+        <td>Rock type is generated and the user clicks water, they will get a correct alert and games won will increase</td>
+        <td>Click on water when rock has been selected as random type</td>
+        <td>Correct alert appears, games won increments by one</td>
+        <td>pass</td>
+    </tr>
+    <tr>
+        <td>Random type is rock, user type is grass, give correct alert</td>
+        <td>Rock type is generated and the user clicks grass, they will get a correct alert and games won will increase</td>
+        <td>Click on grass when rock has been selected as random type</td>
+        <td>Correct alert appears, games won increments by one</td>
+        <td>pass</td>
+    </tr>
+    <tr>
+        <td>Random type is rock, user type is ground, give incorrect alert</td>
+        <td>Rock type is generated and the user clicks ground, they will get an incorrect alert and games lost will increase</td>
+        <td>Click on ground when rock has been selected as random type</td>
+        <td>Incorrect alert appears, games lost increments by one</td>
+        <td>pass</td>
+    </tr>
+    <tr>
+        <td>Random type is rock, user type is electric, give incorrect alert</td>
+        <td>Rock type is generated and the user clicks fire, they will get an incorrect alert and games lost will increase</td>
+        <td>Click on electric when rock has been selected as random type</td>
+        <td>Incorrect alert appears, games lost increments by one</td>
+        <td>pass</td>
+    </tr>
+    <tr>
+        <td>Random type is rock, user type is flying, give incorrect alert</td>
+        <td>Rock type is generated and the user clicks flying, they will get an incorrect alert and games lost will increase</td>
+        <td>Click on flying when rock has been selected as random type</td>
+        <td>Incorrect alert appears, games lost increments by one</td>
+        <td>pass</td>
+    </tr>
+    <tr>
+        <td>Random type is rock, user type is rock, give incorrect alert</td>
+        <td>Rock type is generated and the user clicks rock, they will get an incorrect alert and games lost will increase</td>
+        <td>Click on rock when rock has been selected as random type</td>
+        <td>Incorrect alert appears, games lost increments by one</td>
+        <td>pass</td>
+    </tr>
+    <tr>
+        <td>Random type is rock, user type is fighting, give correct alert</td>
+        <td>Rock type is generated and the user clicks fighting, they will get a correct alert and games won will increase</td>
+        <td>Click on fighting when rock has been selected as random type</td>
+        <td>Correct alert appears, games won increments by one</td>
+        <td>pass</td>
+    </tr>
+    <tr>
+        <td>Random type is fighting, user type is fire, give incorrect alert</td>
+        <td>Fighting type is generated and the user clicks fire, they will get an incorrect alert and games lost will increase</td>
+        <td>Click on fire when fighting has been selected as random type</td>
+        <td>Incorrect alert appears, games lost increments by one</td>
+        <td>pass</td>
+    </tr>
+    <tr>
+        <td>Random type is fighting, user type is water, give incorrect alert</td>
+        <td>Fighting type is generated and the user clicks water, they will get an incorrect alert and games lost will increase</td>
+        <td>Click on water when fighting has been selected as random type</td>
+        <td>Incorrect alert appears, games lost increments by one</td>
+        <td>pass</td>
+    </tr>
+    <tr>
+        <td>Random type is fighting, user type is grass, give incorrect alert</td>
+        <td>Fighting type is generated and the user clicks grass, they will get an incorrect alert and games lost will increase</td>
+        <td>Click on grass when fighting has been selected as random type</td>
+        <td>Incorrect alert appears, games lost increments by one</td>
+        <td>pass</td>
+    </tr>
+    <tr>
+        <td>Random type is fighting, user type is ground, give incorrect alert</td>
+        <td>Fighting type is generated and the user clicks ground, they will get an incorrect alert and games lost will increase</td>
+        <td>Click on ground when fighting has been selected as random type</td>
+        <td>Incorrect alert appears, games lost increments by one</td>
+        <td>pass</td>
+    </tr>
+    <tr>
+        <td>Random type is fighting, user type is electric, give incorrect alert</td>
+        <td>Fighting type is generated and the user clicks electric, they will get an incorrect alert and games lost will increase</td>
+        <td>Click on electric when fighting has been selected as random type</td>
+        <td>Incorrect alert appears, games lost increments by one</td>
+        <td>pass</td>
+    </tr>
+    <tr>
+        <td>Random type is fighting, user type is flying, give correct alert</td>
+        <td>Fighting type is generated and the user clicks flying, they will get a correct alert and games won will increase</td>
+        <td>Click on flying when fighting has been selected as random type</td>
+        <td>Correct alert appears, games won increments by one</td>
+        <td>pass</td>
+    </tr>
+    <tr>
+        <td>Random type is fighting, user type is fighting, give incorrect alert</td>
+        <td>Fighting type is generated and the user clicks fighting, they will get an incorrect alert and games lost will increase</td>
+        <td>Click on fighting when fighting has been selected as random type</td>
+        <td>Incorrect alert appears, games lost increments by one</td>
+        <td>pass</td>
+    </tr>
 </table>
 
-## Contact Page
+## Defense Game Testing
 
 <table>
     <tr>
@@ -455,38 +833,115 @@ The following browsers were used during testing:
         <th>Pass/Fail</th>
     </tr>
     <tr>
-        <td>Form must be complete before submitting</td>
-        <td>Form does not allow you to proceed unless every section complete</td>
-        <td>Click submit with some area not complete</td>
-        <td>Does not allow you to continue</td>
+        <td>Random type is fire, user type is fire, give incorrect alert</td>
+        <td>Fire type is generated and the user clicks flire, they will get an incorrect alert and games lost will increase</td>
+        <td>Click on fire when fire has been selected as random type</td>
+        <td>Incorrect alert appears, games lost increments by one</td>
         <td>pass</td>
     </tr>
     <tr>
-        <td>Email tab</td>
-        <td>Email section will not proceed unless an email address is entered</td>
-        <td>Click on submit with my full name in the email tab</td>
-        <td>Email tab asks me to put in an email address before proceeding</td>
+        <td>Random type is fire, user type is water, give incorrect alert</td>
+        <td>Fire type is generated and the user clicks water, they will get an incorrect alert and games lost will increase</td>
+        <td>Click on water when fire has been selected as random type</td>
+        <td>Incorrect alert appears, games lost increments by one</td>
         <td>pass</td>
     </tr>
     <tr>
-        <td>Radio button</td>
-        <td>Only one radio button option can be selected at a time</td>
-        <td>Click one radio button and then click each one after, tried this with every combonation of button</td>
-        <td>Does not allow me to have more than one clicked</td>
+        <td>Random type is fire, user type is grass, give correct alert</td>
+        <td>Fire type is generated and the user clicks grass, they will get an correct alert and games lost won increase</td>
+        <td>Click on grass when fire has been selected as random type</td>
+        <td>Correct alert appears, games won increments by one</td>
         <td>pass</td>
     </tr>
     <tr>
-        <td>Submit colour change</td>
-        <td>Submit button changed colour when hovered over</td>
-        <td>Hover over submit button</td>
-        <td>Colour of button changes</td>
+        <td>Random type is fire, user type is ground, give incorrect alert</td>
+        <td>Fire type is generated and the user clicks ground, they will get an incorrect alert and games lost will increase</td>
+        <td>Click on ground when fire has been selected as random type</td>
+        <td>Incorrect alert appears, games lost increments by one</td>
         <td>pass</td>
     </tr>
     <tr>
-        <td>Submit button cursor</td>
-        <td>Submit button changes cursor when hovered over</td>
-        <td>Hover over submit button</td>
-        <td>Cursor changes</td>
+        <td>Random type is fire, user type is electric, give incorrect alert</td>
+        <td>Fire type is generated and the user clicks electric, they will get an incorrect alert and games lost will increase</td>
+        <td>Click on electric when fire has been selected as random type</td>
+        <td>Incorrect alert appears, games lost increments by one</td>
+        <td>pass</td>
+    </tr>
+    <tr>
+        <td>Random type is fire, user type is flying, give incorrect alert</td>
+        <td>Fire type is generated and the user clicks flying, they will get an incorrect alert and games lost will increase</td>
+        <td>Click on flying when fire has been selected as random type</td>
+        <td>Incorrect alert appears, games lost increments by one</td>
+        <td>pass</td>
+    </tr>
+    <tr>
+        <td>Random type is fire, user type is rock, give incorrect alert</td>
+        <td>Fire type is generated and the user clicks rock, they will get an incorrect alert and games lost will increase</td>
+        <td>Click on rock when fire has been selected as random type</td>
+        <td>Incorrect alert appears, games lost increments by one</td>
+        <td>pass</td>
+    </tr>
+    <tr>
+        <td>Random type is fire, user type is fighting, give incorrect alert</td>
+        <td>Fire type is generated and the user clicks fighting, they will get an incorrect alert and games lost will increase</td>
+        <td>Click on fighting when fire has been selected as random type</td>
+        <td>Incorrect alert appears, games lost increments by one</td>
+        <td>pass</td>
+    </tr>
+    <tr>
+        <td>Random type is water, user type is fire, give correct alert</td>
+        <td>Water type is generated and the user clicks fire, they will get a correct alert and games won will increase</td>
+        <td>Click on fire when water has been selected as random type</td>
+        <td>Correct alert appears, games won increments by one</td>
+        <td>pass</td>
+    </tr>
+    <tr>
+        <td>Random type is water, user type is water, give incorrect alert</td>
+        <td>Water type is generated and the user clicks water, they will get an incorrect alert and games lost will increase</td>
+        <td>Click on water when water has been selected as random type</td>
+        <td>Incorrect alert appears, games lost increments by one</td>
+        <td>pass</td>
+    </tr>
+    <tr>
+        <td>Random type is water, user type is grassr, give incorrect alert</td>
+        <td>Water type is generated and the user clicks grass, they will get an incorrect alert and games lost will increase</td>
+        <td>Click on grass when water has been selected as random type</td>
+        <td>Incorrect alert appears, games lost increments by one</td>
+        <td>pass</td>
+    </tr>
+    <tr>
+        <td>Random type is water, user type is ground, give correct alert</td>
+        <td>Water type is generated and the user clicks ground, they will get a correct alert and games won will increase</td>
+        <td>Click on ground when water has been selected as random type</td>
+        <td>Correct alert appears, games won increments by one</td>
+        <td>pass</td>
+    </tr>
+    <tr>
+        <td>Random type is water, user type is electric, give incorrect alert</td>
+        <td>Water type is generated and the user clicks electric, they will get an incorrect alert and games lost will increase</td>
+        <td>Click on electric when water has been selected as random type</td>
+        <td>Incorrect alert appears, games lost increments by one</td>
+        <td>pass</td>
+    </tr>
+    <tr>
+        <td>Random type is water, user type is flying, give incorrect alert</td>
+        <td>Water type is generated and the user clicks flying, they will get an incorrect alert and games lost will increase</td>
+        <td>Click on flying when water has been selected as random type</td>
+        <td>Incorrect alert appears, games lost increments by one</td>
+        <td>pass</td>
+    </tr>
+    <tr>
+        <td>Random type is water, user type is rock, give correct alert</td>
+        <td>Water type is generated and the user clicks rock, they will get a correct alert and games won will increase</td>
+        <td>Click on rock when water has been selected as random type</td>
+        <td>Correct alert appears, games won increments by one</td>
+        <td>pass</td>
+    </tr>
+    <tr>
+        <td>Random type is water, user type is fighting, give incorrect alert</td>
+        <td>Water type is generated and the user clicks fighting, they will get an incorrect alert and games lost will increase</td>
+        <td>Click on fighting when water has been selected as random type</td>
+        <td>Incorrect alert appears, games lost increments by one</td>
         <td>pass</td>
     </tr>
 </table>
