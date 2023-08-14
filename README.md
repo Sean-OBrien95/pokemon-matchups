@@ -169,6 +169,13 @@ Please see attached wireframes for the main page and game area. I have used desk
 
 <img src="assets/images/alert-image.png" alt="Photo of the alert image">
 
+# Future Features
+
+- There are a number of features that I have come up with that could be added at a later stage, I have not implemented them due to time constraints.
+- There are a total of 18 different pokemon types, this is an obvious feature that I could include these in the game sections. My reason for not doing so is that this is geared more toward beginners and intermediate plays and did not want to overwhelm them.
+- 3 round feature. I orifinally wanted the game to have a best of 3 feature but ultimately cut it out. My reason for tjhis is that the code began to have too many global variables and felt I need to cut it down.
+- Timer feature for difficulty. This was a feature I was originally going to include with the 3 round system. Moving back to a single round, I felt the timer did not add much so removed it. I would like to implement this feature in the future however.
+
 # Testing
 
 - Ran html through W3C validator and Jigsaw css validator with no issues. HAve received some warnings and undefined variables on JSHint however upon examination needed these to function.
@@ -192,14 +199,8 @@ Unresolved bugs:
 
 # Lighthouse Testing
 
-<img src="assets/images/home-desktop.png" alt="image of lighthouse for homepage on desktop">
-<img src="assets/images/home-mobile.png" alt="image of lighthouse for homepage on mobile">
-<img src="assets/images/tricks-desktop.png" alt="image of lighthouse for tricks page on desktop">
-<img src="assets/images/tricks-mobile.png" alt="image of lighthouse for tricks page on mobile">
-<img src="assets/images/faq-desktop.png" alt="image of lighthouse for faq page on desktop">
-<img src="assets/images/faq-mobile.png" alt="image of lighthouse for faq page on mobile">
-<img src="assets/images/contact-desktop.png" alt="image of lighthouse for contact page on desktop">
-<img src="assets/images/contact-mobile.png" alt="image of lighthouse for contact page on mobile">
+<img src="assets/images/lighthouse-mobile.png" alt="image of lighthouse on mobile">
+<img src="assets/images/lighthouse-desktop.png" alt="image of lighthouse on desktop">
 
 # Full Testing
 
@@ -225,9 +226,7 @@ The following browsers were used during testing:
 - Google Chrome
 - Safari
 
-All features that are on multiple pages (eg. Logo, Nav bar, Social media links) will only show up as tested in the first page they appear on, but have been tested on all pages.
-
-## Home page testing
+## User Interface Testing
 
 <table>
     <tr>
@@ -238,36 +237,85 @@ All features that are on multiple pages (eg. Logo, Nav bar, Social media links) 
         <th>Pass/Fail</th>
     </tr>
     <tr>
-        <td>Logo</td>
-        <td>When clicking logo takes back to home page</td>
-        <td>Click logo</td>
-        <td>Takes back to home page</td>
+        <td>Game Option Button Fade</td>
+        <td>When hovering over button fade effect appears</td>
+        <td>Hovered over attack, defense, easy, medium, and hard button</td>
+        <td>Fades to assigned colour</td>
         <td>pass</td>
     </tr>
     <tr>
-        <td>Nav bar highlight</td>
-        <td>Hovered page on nav bar will change colour</td>
-        <td>Hover over nav bar</td>
-        <td>Changed colour</td>
+        <td>Only one game mode can be clicked at a time</td>
+        <td>Only either attack or defense can be clicked, not both</td>
+        <td>Click attack, then click defense, then click attack again</td>
+        <td>Attack became highlighted, then defense became highlighted and attack lost highlight, the attack became highlighted and defense lost it's highlight</td>
         <td>pass</td>
     </tr>
     <tr>
-        <td>Hero image animation</td>
-        <td>Hero image will have a zoom effect on all screen sizes</td>
-        <td>Reloaded page on different screen sizes</td>
-        <td>Animation occured</td>
+        <td>Easy can not be clicked  at same time as medium or hard</td>
+        <td>Easy, medium, and hard difficulty can not be clicked at same time</td>
+        <td>Click easy, then click medium, then click easy again, then click hard</td>
+        <td>Easy became highlighted, then medium, then easy again, then hard</td>
         <td>pass</td>
     </tr>
     <tr>
-        <td>Social media links</td>
-        <td>All social media links on footer take you to new tab of the indicated social media</td>
-        <td>Click each link</td>
-        <td>Social media opened in seperate tabs</td>
+        <td>Medium can not be clicked  at same time as easy or hard</td>
+        <td>Easy, medium, and hard difficulty can not be clicked at same time</td>
+        <td>Click medium, then click easy, then click medium again, then click hard</td>
+        <td>Medium became highlighted, then easy, then medium again, then hard</td>
+        <td>pass</td>
+    </tr>
+    <tr>
+        <td>Hard can not be clicked  at same time as easy or medium</td>
+        <td>Easy, medium, and hard difficulty can not be clicked at same time</td>
+        <td>Click hard, then click easy, then click hard again, then click medium</td>
+        <td>Hard became highlighted, then easy, then hard again, then medium</td>
+        <td>pass</td>
+    </tr>
+    <tr>
+        <td>Play button diabled</td>
+        <td>The play button will not be able to be clciked until all fields have been selected/filled</td>
+        <td>Try and click play button without everything completed</td>
+        <td>Play button remains disabled and nothing happens</td>
+        <td>pass</td>
+    </tr>
+    <tr>
+        <td>Play button activates</td>
+        <td>The play button will be clickable after all fields have been filled in</td>
+        <td>Try and click play button with everything completed</td>
+        <td>Play button starts game</td>
+        <td>pass</td>
+    </tr>
+    <tr>
+        <td>Right answers increment games won</td>
+        <td>The games won section of the score area will increase in value after getting a round correct</td>
+        <td>Entered game and answered correctly</td>
+        <td>Games won increased by one</td>
+        <td>pass</td>
+    </tr>
+    <tr>
+        <td>Wrong answers increment games lost</td>
+        <td>The games lost section of the score area will increase in value after getting a round wrong</td>
+        <td>Entered game and answered incorrectly</td>
+        <td>Games lost increased by one</td>
+        <td>pass</td>
+    </tr>
+    <tr>
+        <td>Username input</td>
+        <td>The enter name: area will take allow user to input any text</td>
+        <td>Entered name while other buttons pressed</td>
+        <td>play button activated and allowed me to play game</td>
+        <td>pass</td>
+    </tr>
+    <tr>
+        <td>Username Blank input</td>
+        <td>The enter name: area will not be considered filled if the user input blank spaces and nothing else</td>
+        <td>Entered blank spaces while other buttons clicked</td>
+        <td>play button did not activated</td>
         <td>pass</td>
     </tr>
 </table>
 
-## Tricks Page Testing
+## Game Direction Testing
 
 <table>
     <tr>
@@ -278,36 +326,50 @@ All features that are on multiple pages (eg. Logo, Nav bar, Social media links) 
         <th>Pass/Fail</th>
     </tr>
     <tr>
-        <td>Auto play</td>
-        <td>Videos do not autoplay when page is loaded</td>
-        <td>Reload page and check videos</td>
-        <td>Does not autoplay</td>
+        <td>Acessing the Attack game on Easy difficulty</td>
+        <td>Checking if this button combination takes you to correct game</td>
+        <td>Click Attack, click Easy, fill out name space and hit play</td>
+        <td>Takes you to the attack game with only 4 options for me to select</td>
         <td>pass</td>
     </tr>
     <tr>
-        <td>Volume tab</td>
-        <td>Videos will allow user to control volume once clicked</td>
-        <td>Start video and mute volume with a click or control with cursor</td>
-        <td>Volume mutes or goes up/down as intended</td>
+        <td>Acessing the Attack game on Medium difficulty</td>
+        <td>Checking if this button combination takes you to correct game</td>
+        <td>Click Attack, click Medium, fill out name space and hit play</td>
+        <td>Takes you to the attack game with only 6 options for me to select</td>
         <td>pass</td>
     </tr>
     <tr>
-        <td>Pause button</td>
-        <td>Video will be able to be paused at anytime</td>
-        <td>Click center of video and button in bottom left corner</td>
-        <td>Video paused</td>
+        <td>Acessing the Attack game on Hard difficulty</td>
+        <td>Checking if this button combination takes you to correct game</td>
+        <td>Click Attack, click Hard, fill out name space and hit play</td>
+        <td>Takes you to the attack game with all 8 options for me to select</td>
         <td>pass</td>
     </tr>
     <tr>
-        <td>Full screen</td>
-        <td>Videos will allow you to go full screen</td>
-        <td>Click full screen icon in bottom right corner</td>
-        <td>Video appeared full screen</td>
+        <td>Acessing the Defense game on Easy difficulty</td>
+        <td>Checking if this button combination takes you to correct game</td>
+        <td>Click Defense, click Easy, fill out name space and hit play</td>
+        <td>Takes you to the defense game with only 4 options for me to select</td>
+        <td>pass</td>
+    </tr>
+    <tr>
+        <td>Acessing the Defense game on Medium difficulty</td>
+        <td>Checking if this button combination takes you to correct game</td>
+        <td>Click DEfense, click Medium, fill out name space and hit play</td>
+        <td>Takes you to the defense game with only 6 options for me to select</td>
+        <td>pass</td>
+    </tr>
+    <tr>
+        <td>Acessing the Defense game on Hard difficulty</td>
+        <td>Checking if this button combination takes you to correct game</td>
+        <td>Click Defense, click Hard, fill out name space and hit play</td>
+        <td>Takes you to the defense game with all 8 options for me to select</td>
         <td>pass</td>
     </tr>
 </table>
 
-## FAQ Page
+## Attack Game Testing
 
 <table>
     <tr>
