@@ -380,17 +380,66 @@ The following browsers were used during testing:
         <th>Pass/Fail</th>
     </tr>
     <tr>
-        <td>Link to contact page</td>
-        <td>When click on the our Contact Page link will take you to contact form in same tab</td>
-        <td>Click on our Contact Page link</td>
-        <td>Opens contact page in same link</td>
+        <td>Random type is fire, user type is fire, give incorrect alert</td>
+        <td>Fire type is generated and the user clicks fire, they will get an incorrect alert and games lost will increase</td>
+        <td>Click on fire when fire has been selected as random type</td>
+        <td>Incorrect alert appears, games lost increments by one</td>
         <td>pass</td>
     </tr>
     <tr>
-        <td>Links to recommended products</td>
-        <td>When clicking on any of the recommended products linked will take you to a new tab with products</td>
-        <td>Click on all 4 of the different links</td>
-        <td>Opens all links in new page with the correct product displayed</td>
+        <td>Random type is fire, user type is water, give correct alert</td>
+        <td>Fire type is generated and the user clicks water, they will get an incorrect alert and games won will increase</td>
+        <td>Click on water when fire has been selected as random type</td>
+        <td>Correct alert appears, games won increments by one</td>
+        <td>pass</td>
+    </tr>
+    <tr>
+        <td>Random type is fire, user type is grass, give incorrect alert</td>
+        <td>Fire type is generated and the user clicks grass, they will get an incorrect alert and games lost will increase</td>
+        <td>Click on grass when fire has been selected as random type</td>
+        <td>Incorrect alert appears, games lost increments by one</td>
+        <td>pass</td>
+    </tr>
+    <tr>
+        <td>Random type is fire, user type is ground, give correct alert</td>
+        <td>Fire type is generated and the user clicks ground, they will get an correct alert and games won will increase</td>
+        <td>Click on ground when fire has been selected as random type</td>
+        <td>Correct alert appears, games won increments by one</td>
+        <td>pass</td>
+    </tr>
+    <tr>
+        <td>Random type is fire, user type is electric, give incorrect alert</td>
+        <td>Fire type is generated and the user clicks electric, they will get an incorrect alert and games lost will increase</td>
+        <td>Click on electric when fire has been selected as random type</td>
+        <td>Incorrect alert appears, games lost increments by one</td>
+        <td>pass</td>
+    </tr>
+    <tr>
+        <td>Random type is fire, user type is flying, give incorrect alert</td>
+        <td>Fire type is generated and the user clicks flying, they will get an incorrect alert and games lost will increase</td>
+        <td>Click on flying when fire has been selected as random type</td>
+        <td>Incorrect alert appears, games lost increments by one</td>
+        <td>pass</td>
+    </tr>
+    <tr>
+        <td>Random type is fire, user type is rock, give correct alert</td>
+        <td>Fire type is generated and the user clicks rock, they will get an correct alert and games won will increase</td>
+        <td>Click on rock when fire has been selected as random type</td>
+        <td>Correct alert appears, games won increments by one</td>
+        <td>pass</td>
+    </tr>
+    <tr>
+        <td>Random type is fire, user type is fighting, give incorrect alert</td>
+        <td>Fire type is generated and the user clicks fighting, they will get an incorrect alert and games lost will increase</td>
+        <td>Click on fighting when fire has been selected as random type</td>
+        <td>Incorrect alert appears, games lost increments by one</td>
+        <td>pass</td>
+    </tr>
+    <tr>
+        <td>Random type is water, user type is fire, give incorrect alert</td>
+        <td>Water type is generated and the user clicks fire, they will get an incorrect alert and games lost will increase</td>
+        <td>Click on fire when water has been selected as random type</td>
+        <td>Incorrect alert appears, games lost increments by one</td>
         <td>pass</td>
     </tr>
 </table>

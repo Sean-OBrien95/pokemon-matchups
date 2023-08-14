@@ -54,7 +54,7 @@ const pokeTypes = [
     },
     {
         type: "rock",
-        strength: ["flying"],
+        strength: ["flying", "fire"],
         weakness: ["grass", "water", "fighting"],
         imageSrc: "assets/images/rock-type.png",
         alt: "Rock type image"
