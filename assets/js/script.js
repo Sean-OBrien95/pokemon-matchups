@@ -3,6 +3,7 @@
 let selectedGameType = null;
 let difficulty = "easy";
 let usernameInput = "";
+let availableTypes = "";
 
 /**
  * Pokemon type arrays. Each contains strength, weakness, and img source
@@ -86,8 +87,9 @@ document.addEventListener("DOMContentLoaded", function () {
     updatePlayButton();
 
     playButton.addEventListener("click", function () {
+
         const usernameInput = document.getElementById("username").value;
-        console.log("Username:", usernameInput);
+
         if (usernameInput === "") {
             return;
         }
