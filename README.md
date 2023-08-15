@@ -178,7 +178,7 @@ Please see attached wireframes for the main page and game area. I have used desk
 
 # Testing
 
-- Ran html through W3C validator and Jigsaw css validator with no issues. HAve received some warnings and undefined variables on JSHint however upon examination needed these to function.
+- Ran html through W3C validator and Jigsaw css validator with no issues. Have received one warning from JS hint about an function declared within a loop, but needs this to function.
 
 - I have checked screen compatibility for phone and tablet, I have checked tablet by using the inspect tool and shrinking down to size and have tested on my own personal mobile to assure it is responsive.
 
@@ -1354,23 +1354,16 @@ The following browsers were used during testing:
 
 # Credit
 
-- Picture credit 1 (hero image): Image by Katya Wolf: <https://www.pexels.com/photo/a-roller-skater-tying-the-lace-8733401/>
-- Health benefits of roller skating taken from WebMD: <https://www.webmd.com/fitness-exercise/what-to-know-about-roller-skating#:~:text=Ways%20that%20roller%20skating%20can%20benefit%20your%20body>,Making%20you%20more%20flexible%207%20Increasing%20your%20agility
-- Woods photo on home page: Photo by Fabian Wiktor: <https://www.pexels.com/photo/selective-focus-photo-of-grass-in-forest-3466355/>
-- Dublin Convention Center Photo: Photo by Bhomick Attri: <https://www.pexels.com/photo/an-illuminated-building-during-night-time-11827803/>
-- Coast line photo: Photo by Nati: <https://www.pexels.com/photo/scenic-view-of-sea-and-boats-16015100/>
-- photo on tricks page: Photo by Laura Stanley: <https://www.pexels.com/photo/white-and-red-roller-skates-2005992/>
-- photo on faq page: Photo by RDNE Stock project: <https://www.pexels.com/photo/woman-in-pink-tank-top-and-white-shorts-sitting-on-gray-concrete-road-7335426/>
-- photo on contact page: Photo by RDNE Stock project: <https://www.pexels.com/photo/woman-sitting-on-green-grass-wearing-roller-skates-7335209/>
-- Youtube videos from moxie roller skates <https://www.youtube.com/watch?v=s56SKfk9608>
-  and queer girl straight skates <https://www.youtube.com/watch?v=tKkdItBQM9U> <https://www.youtube.com/watch?v=nUm9hZ7Xbf8>
-- Favicon: fav icon: <a target="_blank" href="https://icons8.com/icon/BtCQacVxJCK1/skate">Skate</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a>
+- Pokeball logo photo taken from, also used as favicon: https://purepng.com/photo/19580/clipart-pokeball
+- Different pokemon types taken from: <https://pokeguide.neocities.org/PokemonTypeswhat-to-know-about-roller-skating#:~:text=Ways%20that%20roller%20skating%20can%20benefit%20your%20body>>,Making%20you%20more%20flexible%207%20Increasing%20your%20agility
+- Stock placeholder image taken from: whispy.com from google search: https://www.whispy.com/wp-content/uploads/image-placeholder-200x200.jpg
 
 ### I had learned some commands from the following websites
 
-- Flex commands: <https://stackoverflow.com/questions/38948102/center-one-and-right-left-align-other-flexbox-element>
-- Using transition fade on submit button: <https://www.w3schools.com/csS/css3_buttons.asp>
-- Applying shadow effect to contact form: <https://blog.logrocket.com/how-to-style-forms-with-css-a-beginners-guide/>
+- Array of objects tutorial: https://www.freecodecamp.org/news/javascript-array-of-objects-tutorial-how-to-create-update-and-loop-through-objects-using-js-array-methods/
+- Keeping JS buttons clicked: https://softauthor.com/make-selected-clicked-button-active-in-javascript/
+- classList properties tutorial: https://developer.mozilla.org/en-US/docs/Web/API/Element/classList
+- JS array iterations: <https://www.w3schools.com/JS/js_array_iteration.asp>
 
 - Command for youtube videos: <https://www.w3schools.com/html/html_youtube.asp>
 

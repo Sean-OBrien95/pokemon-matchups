@@ -235,41 +235,35 @@ function getTypes(difficulty) {
     }
 }
 
-// check user attack answers and displays appropriate alert
+// check user answers and displays appropriate alert
 
-function checkAttackAnswer(selectedType, targetedType, usernameInput) {
+function checkAnswer(selectedType, targetedType, usernameInput, selectedGameType) {
 
-    if (selectedType === targetedType) {
-        alert(`Sorry ${usernameInput}, you chose ${selectedType}. Try another round!`);
-        incrementWrongAnswer();
-    } else if (isStrongAgainst(selectedType, targetedType)) {
-        alert(`Well done ${usernameInput}! You chose ${selectedType}. It's super effective!`);
-        incrementScore();
-    } else {
-        alert(`Sorry ${usernameInput}, you chose ${selectedType}. Try another round!`);
-        incrementWrongAnswer();
+    if (selectedGameType === "attack") {
+        if (selectedType === targetedType) {
+            alert(`Sorry ${usernameInput}, you chose ${selectedType}. Try another round!`);
+            incrementWrongAnswer();
+        } else if (isStrongAgainst(selectedType, targetedType)) {
+            alert(`Well done ${usernameInput}! You chose ${selectedType}. It's super effective!`);
+            incrementScore();
+        } else {
+            alert(`Sorry ${usernameInput}, you chose ${selectedType}. Try another round!`);
+            incrementWrongAnswer();
 
-    }
+        }
+    } else if (selectedGameType === "defense") {
+        if (selectedType === targetedType) {
+            alert(`Sorry, ${usernameInput}, you chose ${selectedType}. Try another round!`);
+            incrementWrongAnswer();
 
-    stopGame();
+        } else if (isWeaknessOf(targetedType, selectedType)) {
+            alert(`Well done ${usernameInput}! You chose ${selectedType}. Thats correct!`);
+            incrementScore();
+        } else {
+            alert(`Sorry, ${usernameInput}, you chose ${selectedType}. Try another round!`);
+            incrementWrongAnswer();
 
-}
-
-// check user defense answers and displays appropriate alert
-
-function checkDefenseAnswer(selectedType, targetedType, usernameInput) {
-
-    if (selectedType === targetedType) {
-        alert(`Sorry, ${usernameInput}, you chose ${selectedType}. Try another round!`);
-        incrementWrongAnswer();
-
-    } else if (isWeaknessOf(targetedType, selectedType)) {
-        alert(`Well done ${usernameInput}! You chose ${selectedType}. Thats correct!`);
-        incrementScore();
-    } else {
-        alert(`Sorry, ${usernameInput}, you chose ${selectedType}. Try another round!`);
-        incrementWrongAnswer();
-
+        }
     }
 
     stopGame();
@@ -317,6 +311,7 @@ function incrementWrongAnswer() {
 
     let oldScore = parseInt(document.getElementById("wrong").innerHTML);
     document.getElementById("wrong").innerText = ++oldScore;
+
 }
 
 // checks if the selected type is strong against the target type
@@ -342,7 +337,7 @@ function isWeaknessOf(selectedType, targetedType) {
  * the selected game type(attack/defense), inputted name, and available types
  */
 
-function displayGeneralQuestion(selectedType, usernameInput, availableTypes) {
+function displayGeneralQuestion(selectedType, usernameInput, availableTypes, selectedGameType) {
 
     const resultElement = document.getElementById("result");
     resultElement.textContent = "";
@@ -401,11 +396,7 @@ function displayGeneralQuestion(selectedType, usernameInput, availableTypes) {
         button.setAttribute("data-type", type.type);
         button.appendChild(typeImage);
         button.addEventListener("click", function () {
-            if (selectedType == "attack") {
-                checkAttackAnswer(type.type, targetType.type, usernameInput);
-            } else if (selectedType == "defense") {
-                checkDefenseAnswer(type.type, targetType.type, usernameInput);
-            }
+            checkAnswer(type.type, targetType.type, usernameInput, selectedType);
         });
         buttonsContainer.appendChild(button);
     }
